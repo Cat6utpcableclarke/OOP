@@ -1,0 +1,23 @@
+
+*{
+    margin: 0;
+}
+.head {
+    background-color: blanchedalmond;
+    height: 70px;
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    align-items: center; /* Center content vertically */
+}
+
+.head p {
+    margin: 0; 
+    padding-left: 10px;
+}
+
+.head input {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+
