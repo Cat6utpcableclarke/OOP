@@ -5,7 +5,7 @@
 .head {
     background-color: blanchedalmond;
     height: 70px;
-    display: flex; /* Use flexbox to align items */
+    display:flex; /* Use flexbox to align items */
     justify-content: space-between; /* Distribute items evenly along the main axis */
     align-items: center; /* Center content vertically */
 }
