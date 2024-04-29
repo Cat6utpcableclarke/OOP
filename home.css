@@ -1,13 +1,15 @@
 
-*{
+* {
     margin: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 .head {
     background-color: blanchedalmond;
     height: 70px;
-    display:flex; /* Use flexbox to align items */
+    display: flex; /* Use flexbox to align items */
     justify-content: space-between; /* Distribute items evenly along the main axis */
     align-items: center; /* Center content vertically */
+    padding: 0 20px; /* Add padding for spacing */
 }
 
 .head p {
@@ -20,4 +22,33 @@
     margin: 0 10px; 
 }
 
+.looking { 
+    text-align: center;
+    background-color: aqua;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px; /* Adjusted margin */
+    padding: 10px; /* Added padding for spacing */
+}
 
+.choices {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center the choices horizontally */
+    margin-top: 20px; /* Added margin for spacing */
+}
+
+.choices > div {
+    background-color: blue;
+    width: calc(25% - 10px); /* Adjusted width for 4 items per row with spacing */
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+.pick{
+    margin: auto;
+    width: 50%;
+    margin-top: 250px;
+} 
