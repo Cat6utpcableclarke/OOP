@@ -15,20 +15,11 @@ header ul li{
     padding: 5px;
     font-family:cursive;
 }
-li a{
-    list-style: none;
-    text-decoration: none;
-    color: azure;
-}
-li:hover{
-    background-color: #14e092;
-}
-
 
 .header{
     background-color: #003521;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     
 }
 
@@ -45,57 +36,8 @@ li:hover{
     font-size: xx-large;
 }
 
-.profile{
-    margin-right: 10px;
-    margin-top: 10px;
-    background-color: beige;
-    width: fit-content;
-    height:fit-content;
-    border-radius: 10px;
-}
-
-.msg{
-    text-align: center; 
-    margin-top: 50px;
-    font-size: x-large;
-    font-family:cursive;
-}
-
-.select{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
-  padding: 50px;
-  border-radius: 10px;
-}
-
-.select div {
-    border-radius: 10px;
-    font-family: cursive;
-}
-
-.select a{
-    text-decoration: none;
-    color: black;
-}
-
-.Sell{
-   background-color: beige;
-   font-family:cursive;
-   text-align: center;
-   height:fit-content;
-   width: fit-content;
-   padding: 5px;
-   border-radius: 10px;
-   margin: auto;
-}
-
-.Sell:hover{
-    cursor: pointer;
-}
-
-.select div:hover {
-   background-color: aliceblue;
-   cursor: pointer;
+.login{
+    
+    text-align: center;
+    background-color: aqua;
 }

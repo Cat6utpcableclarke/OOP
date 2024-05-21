@@ -4,49 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="login.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link rel="stylesheets" href="login.css">
+    
 </head>
 <body>
     <header>
         <div class="header">
-               <div class="logo"><img src="images/usclogo.png"></div>
+               <div class="logo"></div>
                <div class="name"><p>USC NIGHT MARKET</p></div>
-              <div class="profile"><p>PROFILE</p></div>
-               
            </div>
-       </header>
+    </header>
     
-    <p>No account? Sign Up!</p>
-    <input type="text" id="name" name="name">
-    <label for="name">Name</label><br><br>
+    <div class="login">
+        <p>No account? Sign Up!</p>
+        <input type="text" id="name" name="name">
+        <label for="name">Name</label><br><br>
 
-    <input type="text" id="year" name="year">
-    <label for="year">Year</label><br><br>
+        <input type="text" id="year" name="year">
+        <label for="year">Year</label><br><br>
 
-    <input type="text" id="course" name="course">
-    <label for="course">Course</label><br><br>
+        <input type="text" id="course" name="course">
+        <label for="course">Course</label><br><br>
 
-    <input type="text" id="email" name="course">
-    <label for="email">Email</label><br><br>
+        <input type="text" id="email" name="course">
+        <label for="email">Email</label><br><br>
 
-    <input type="text" id="pass" name="course">
-    <label for="pass">Password</label><br><br>
+        <input type="text" id="pass" name="course">
+        <label for="pass">Password</label><br><br>
 
-    <button onclick="addacc()">Sign Up!</button>
+        <button onclick="addacc()">Sign Up!</button>
 
 
     
     
-    <br><br><br><br>
-    <p>Already have an account? Log in!</p>
-    <input type="text" id="email" name="course">
-    <label for="email">Email</label><br><br>
+        <br><br><br><br>
+        <p>Already have an account? Log in!</p>
+        <input type="text" id="email" name="course">
+        <label for="email">Email</label><br><br>
 
-    <input type="text" id="pass" name="course">
-    <label for="pass">Password</label><br><br>
-    <button onclick="existornot()">Log In</button>
-
+        <input type="text" id="pass" name="course">
+        <label for="pass">Password</label><br><br>
+        <button onclick="existornot()">Log In</button>
+    </div>
 
 
 
