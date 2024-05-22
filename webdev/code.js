@@ -46,8 +46,8 @@ async function addacc(){
 }
 
 async function existornot(){
-    var email=document.getElementById("email2").value
-    var pass=document.getElementById("pass2").value
+    var email=document.getElementById("login-email").value
+    var pass=document.getElementById("login-pass").value
 
     console.log(`Checking for email: ${email} and password: ${pass}`);
 
@@ -56,7 +56,7 @@ async function existornot(){
     if (data.length > 0) {
         window.location.href = "mainpage.html"
     } else {
-        alert('No matching records found.')
+        alert('Either wrong password or email.')
       
     }
 }
