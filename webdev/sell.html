@@ -4,47 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="sellpage.css">
     <script type="module">
         import uuidv4 from 'https://cdn.jsdelivr.net/npm/uuidv4@6.2.13/+esm'
         </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    
-    <p>Hello World</p>
+    <header>
+        <div class="header">
+               <div class="logo"></div>
+               <div class="name"><p>USC NIGHT MARKET</p></div>
+           </div>
+    </header>
 
-
-
+    <div class="container">
+    <label for="itm_name">Item name</label>
     <input type="text" id="itm_name" name="itm_name">
-    <label for="itm_name">Item name</label><br><br>
-    <input type="text" id="itm_desc" name="itm_desc">
-    <label for="itm_desc">Item desc</label><br><br>
-    <input type="text" id="itm_prc" name="itm_prc">
-    <label for="item_prc">Item price</label><br><br>
-
-
-    <p>Item type</p>
-    <input type="radio" id="S_books" name="S_books" value="books">
-    <label for="S_books">Books</label><br>
-
-    <input type="radio" id="S_electronics" name="S_electronics" value="electronics">
-    <label for="S_electronics">electronics</label><br>
-
-    <input type="radio" id="S_clothes" name="S_clothes" value="clothes">
-    <label for="S_clothes">Clothes</label><br>
-
-    <input type="radio" id="S_misc" name="S_misc" value="misc">
-    <label for="S_misc">Misc</label><br>
-
     <br><br>
+    <label for="itm_desc">Item desc</label>
+    <textarea id="itm_desc" name="itm_desc" rows="4" cols="50" placeholder="add ur msngr link here and item description"></textarea>
+    <!--<input type="text" id="itm_desc" name="itm_desc" placeholder="add ur seller contacts here">-->
+    <br><br>
+    <label for="item_prc">Item price</label>
+    <input type="text" id="itm_prc" name="itm_prc">
+    <br><br>
+    
+     <p>Item type</p>
+            <div class="radio">
+    
+                <input type="radio" id="S_books" name="S_books" value="books">
+                <label for="S_books">Books</label><br>
 
-    <p>Submit Picture of Item</p><br>
-    <label for="itm_image">Item Image</label>
-    <input type="file" id="itm_image" name="itm_image"><br><br>
+                <input type="radio" id="S_electronics" name="S_electronics" value="electronics">
+                <label for="S_electronics">electronics</label><br>
 
-    <button onclick="submitItem()">Submit Item</button>
+                <input type="radio" id="S_clothes" name="S_clothes" value="clothes">
+                <label for="S_clothes">Clothes</label><br>
 
+                <input type="radio" id="S_misc" name="S_misc" value="misc">
+                <label for="S_misc">Misc</label><br>
+            </div>   
+    <br><br>
+      
+            <p style="text-align: center;">Submit Picture of Item</p><br>
+            <label for="itm_image">Item Image</label>
+            <input type="file" id="itm_image" name="itm_image"><br><br>
+
+            <button onclick="submitItem()">Submit Item</button>
+    
+    </div>
     <script type="text/javascript" src="./code.js"></script>
 </body>
 </html>
