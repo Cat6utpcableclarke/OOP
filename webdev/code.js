@@ -66,5 +66,40 @@ async function existornot(){
 //main page js
 
 async function autosort(type){
-    console.log("Clicked category: ", type)
+    window.location.href = "display.html"
+
+    
+}
+
+async function fetchItems() {
+    const {data, error} = await connection.from('item').select('*')
+
+   
+    data.forEach(item => {
+        displayItem(item)
+    });
+}
+
+
+function displayItem(item) {
+    const itemDisplay = document.getElementById('item_display')
+
+    // Create HTML elements to display item information
+    const itemDiv = document.createElement('div')
+    itemDiv.classList.add('item')
+
+    const name = document.createElement('p')
+    name.textContent = `Name of product: ${item.name}`
+
+    const price = document.createElement('p')
+    price.textContent = `Price: ${item.price}`
+
+    const description = document.createElement('p');
+    description.textContent = `Description: ${item.desc}`
+
+    // Append elements to the container
+    itemDiv.appendChild(name)
+    itemDiv.appendChild(price)
+    itemDiv.appendChild(description)
+    itemDisplay.appendChild(itemDiv)
 }
