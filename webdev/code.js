@@ -21,6 +21,8 @@ fetchData()
 
 
 
+//sign up and log in page js
+
 async function addacc(){
     var name=document.getElementById("name").value
     var year=Number(document.getElementById("year").value)
@@ -49,8 +51,6 @@ async function existornot(){
     var email=document.getElementById("login-email").value
     var pass=document.getElementById("login-pass").value
 
-    console.log(`Checking for email: ${email} and password: ${pass}`);
-
     const{data,error}=await connection.from('customer').select('email, password').eq('email',email).eq('password',pass)
 
     if (data.length > 0) {
@@ -62,3 +62,9 @@ async function existornot(){
 }
 
 
+
+//main page js
+
+async function autosort(type){
+    console.log("Clicked category: ", type)
+}

@@ -1,0 +1,9 @@
+.clickable {
+    cursor: pointer;
+    padding: 10px;
+    background-color: lightblue;
+    text-align: center;
+    width: 200px;
+    margin: 20px auto;
+    border: 1px solid blue;
+}
