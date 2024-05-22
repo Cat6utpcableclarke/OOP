@@ -8,12 +8,12 @@ const connection = createClient(supabase_url, supabase_key)
 
 // test code
 async function fetchData() {
-    const { data, error } = await connection.from('customer').select();
+    const {data, error} = await connection.from('customer').select();
 
     if (error) {
-        console.error('Error:', error);
+        console.error('Error:', error)
     } else {
-        console.log('Data:', data);
+        console.log('Data:', data)
     }
 }
 
@@ -28,7 +28,7 @@ async function addacc(){
     var email=document.getElementById("email").value
     var pass=document.getElementById("pass").value
 
-    const { data, error }=await connection.from('customer').insert({
+    const{data,error}=await connection.from('customer').insert({
         name:name,
         year:year,
         course:course,
@@ -37,10 +37,28 @@ async function addacc(){
     })
 
     if (error) {
-        console.error('Error:', error);
+        console.error('Error:', error)
     } else {
-        console.log('Insert successful:', data);
-        window.location.href = "mainpage.html"; // Redirect to the main page
+        console.log('Insert successful:', data)
+        window.location.href = "mainpage.html" 
     }
 
 }
+
+async function existornot(){
+    var email=document.getElementById("email2").value
+    var pass=document.getElementById("pass2").value
+
+    console.log(`Checking for email: ${email} and password: ${pass}`);
+
+    const{data,error}=await connection.from('customer').select('email, password').eq('email',email).eq('password',pass)
+
+    if (data.length > 0) {
+        window.location.href = "mainpage.html"
+    } else {
+        alert('No matching records found.')
+      
+    }
+}
+
+
