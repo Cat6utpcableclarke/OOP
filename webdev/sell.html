@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module">
+        import uuidv4 from 'https://cdn.jsdelivr.net/npm/uuidv4@6.2.13/+esm'
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    
+    <p>Hello World</p>
+
+
+
+    <input type="text" id="itm_name" name="itm_name">
+    <label for="itm_name">Item name</label><br><br>
+    <input type="text" id="itm_desc" name="itm_desc">
+    <label for="itm_desc">Item desc</label><br><br>
+    <input type="text" id="itm_prc" name="itm_prc">
+    <label for="item_prc">Item price</label><br><br>
+
+
+    <p>Item type</p>
+    <input type="radio" id="S_books" name="S_books" value="books">
+    <label for="S_books">Books</label><br>
+
+    <input type="radio" id="S_electronics" name="S_electronics" value="electronics">
+    <label for="S_electronics">electronics</label><br>
+
+    <input type="radio" id="S_clothes" name="S_clothes" value="clothes">
+    <label for="S_clothes">Clothes</label><br>
+
+    <input type="radio" id="S_misc" name="S_misc" value="misc">
+    <label for="S_misc">Misc</label><br>
+
+    <br><br>
+
+    <p>Submit Picture of Item</p><br>
+    <label for="itm_image">Item Image</label>
+    <input type="file" id="itm_image" name="itm_image"><br><br>
+
+    <button onclick="submitItem()">Submit Item</button>
+
+    <script type="text/javascript" src="./code.js"></script>
+</body>
+</html>
