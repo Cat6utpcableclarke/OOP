@@ -20,43 +20,38 @@
     <div class="sell">
         <form>
             <label for="name">ITEM NAME:</label><br>
-                <input type="text" placeholder="ENTER ITEM NAME" name="name" id="name" required><br>
-           
-         <label for="item-type"> Select item-type</label><br>
-            <label> 
-                <input type="radio" id="electronics" name="radio" value="electronics">
-                electronics
-            </label>
-               
-            <label>
-                <input type="radio" id="books" name="radio" value="books">
-                books
-            </label>
-               
-            <label>
-                <input type="radio" id="clothes" name="radio" value="clothes">
-                clothes
-            </label>
-               
-            <label>
-                <input type="radio" id="misc" name="radio" value="misc">
-                misc
-            </label>
-            <br>
-            <label>
-                Item Description <br>
-                <input type="text" id="desc"style="height:100px; width: 500px; border-radius: 10px; background-color: beige;">
-            </label>
-            <br>
-            <label for="Price">Item Price
-                <input type="text" id="price">
-            </label>
-            <br>
-            <label for="photo">Upload photo</label>
-                <input type="file" id="itmphoto" name="photo">
-                <input type="submit">
+            <input type="text" placeholder="ENTER ITEM NAME" name="name" id="name" required><br>
 
-                
+            <label for="item-type">SELECT ITEM TYPE</label><br>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" id="electronics" name="radio" value="electronics">
+                    <span>Electronics</span>
+                </label>
+                <label>
+                    <input type="radio" id="books" name="radio" value="books">
+                    <span>Book</span>
+                </label>
+                <label>
+                    <input type="radio" id="clothes" name="radio" value="clothes">
+                    <span>Clothes</span>
+                </label>
+                <label>
+                    <input type="radio" id="misc" name="radio" value="misc">
+                    <span>Misc</span>
+                </label>
+            </div>
+            <br>
+            <label for="desc">Item Description</label><br>
+            <textarea id="desc" name="desc" rows="4" cols="50" placeholder="Enter item description"></textarea><br>
+            
+            <label for="price">Price</label><br>
+            <input type="text" id="price" name="price" placeholder="Enter price"><br>
+            
+            <label for="itmphoto">Upload Photo</label><br>
+            <input type="file" id="itmphoto" name="photo"><br><br>
+            
+            <input type="submit" value="SELL">
         </form>
     </div>
 
