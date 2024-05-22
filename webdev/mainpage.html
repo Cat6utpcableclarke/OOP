@@ -10,20 +10,21 @@
 <body>
     <header>
         <div class="header">
-               <div class="logo"><img src=""></div>
+               <div class="logo"><img src="images/usclogo.png"></div>
                <div class="name"><p>USC NIGHT MARKET</p></div>
-           </div>
+                <div class="profile"><p>PROFILE</p></div>
+        </div>
     </header>
 
     <!-- mao ning search bar -->
    
-    
-
-    <div class="clickable" onclick="autosort('books')">Books</div><br><br>
-    <div class="clickable" onclick="autosort('electronics')">Electronics</div><br><br>
-    <div class="clickable" onclick="autosort('clothes')">Clothes</div><br><br>
-    <div class="clickable" onclick="autosort('misc')">Misc</div><br><br>
-
+    <p class="msg">What are you looking for?</p>
+    <div class="select">
+        <div class="clickable" onclick="autosort('books')"> <img src="images/Book.png"><p>Books</p></div><br><br>
+        <div class="clickable" onclick="autosort('electronics')"> <img src="images/PC.png"><p>Electronics</p></div><br><br>
+        <div class="clickable" onclick="autosort('clothes')"> <img src="images/Cloth.png"><p>Clothes</p></div><br><br>
+        <div class="clickable" onclick="autosort('misc')"> <img src="images/pencil.png"><p>Misc</p></div><br><br>
+    </div>
     <script type="text/javascript" src="./code.js"></script>
 </body>
 </html>
