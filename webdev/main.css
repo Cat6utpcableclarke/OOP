@@ -10,16 +10,18 @@
     transition: 0.5s;
 }
 
-.clickable img:hover{
+ .clickable img:hover{
     height: 250px;
     width: 250px;
     transition: 0.5s;
 }
 
+
 body{
     margin: 0;
     background-image: url(images/marketbackground.png);
     background-position: bottom center;
+    position:static;
 }
 header{
     height: 145px;
@@ -76,21 +78,24 @@ header{
     font-family: cursive;
 }
 
-/* .Sell{
+ .Sell{
    background-color: beige;
    font-family:cursive;
+   font-size: x-large;
    text-align: center;
    height:fit-content;
    width: fit-content;
    padding: 5px;
    border-radius: 10px;
    margin: auto;
+   cursor: pointer;
+   position: static;
 }
-
 .Sell:hover{
-    cursor: pointer;
-}
-*/
+   background-color: rgb(228, 228, 179);
+   transition: 0.3s;
+ }
+
 .select div:hover {
    background-color: aliceblue;
    cursor: pointer;

@@ -95,6 +95,16 @@ function displayItem(item) {
     const itemDiv = document.createElement('div')
     itemDiv.classList.add('item')
 
+    const itemDivinner = document.createElement('div')
+    itemDivinner.classList.add('inner');
+
+    //sample only, change if item has an image
+    const itemimg =document.createElement('img');
+    itemimg.src = "images/Book.png"
+    //assuming naa nay page mo view sa item detail w/ seller contact, change lang kung unsa imo trippings
+    const button =document.createElement('button');
+    button.innerHTML=`contact seller`
+
     const name = document.createElement('p')
     name.textContent = `Name of product: ${item.name}`
 
@@ -105,10 +115,13 @@ function displayItem(item) {
     description.textContent = `Description: ${item.desc}`
 
     // Append elements to the container
-    itemDiv.appendChild(name)
-    itemDiv.appendChild(price)
-    itemDiv.appendChild(description)
-    itemDisplay.appendChild(itemDiv)
+        itemDivinner.appendChild(name)
+        itemDivinner.appendChild(price)
+        itemDivinner.appendChild(description)
+        itemDivinner.appendChild(button);
+        itemDiv.appendChild(itemimg);
+        itemDiv.appendChild(itemDivinner)
+        itemDisplay.appendChild(itemDiv)
 }
 
 
