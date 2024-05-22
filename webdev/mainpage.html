@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <script type="module">
+        import uuidv4 from 'https://cdn.jsdelivr.net/npm/uuidv4@6.2.13/+esm'
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -25,6 +28,16 @@
         <div class="clickable" onclick="autosort('clothes')"> <img src="images/Cloth.png"><p>Clothes</p></div><br><br>
         <div class="clickable" onclick="autosort('misc')"> <img src="images/pencil.png"><p>Misc</p></div><br><br>
     </div>
+    
+
+    <div class="clickable" onclick="autosort('books')">Books</div><br><br>
+    <div class="clickable" onclick="autosort('electronics')">Electronics</div><br><br>
+    <div class="clickable" onclick="autosort('clothes')">Clothes</div><br><br>
+    <div class="clickable" onclick="autosort('misc')">Misc</div><br><br>
+
+    <br><br><br><br>
+    <div class="clickable" onclick="sell()">Sell</div><br><br>
+
     <script type="text/javascript" src="./code.js"></script>
 </body>
 </html>

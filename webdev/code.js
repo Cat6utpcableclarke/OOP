@@ -4,7 +4,7 @@ const supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 
 const connection = createClient(supabase_url, supabase_key)
-
+const CDNURL = "https://gybwytwokqtgckwsflno.supabase.co/storage/buckets/item_image/"
 
 // test code
 async function fetchData() {
@@ -66,13 +66,20 @@ async function existornot(){
 //main page js
 
 async function autosort(type){
-    window.location.href = "display.html"
-
-    
+    window.location.href = `display.html?type=${type}`
 }
 
-async function fetchItems() {
-    const {data, error} = await connection.from('item').select('*')
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const urlParams = new URLSearchParams(window.location.search)
+    const itemType = urlParams.get('type')
+
+    
+    fetchItems(itemType)
+});
+
+async function fetchItems(itemType) {
+    const{data, error}=await connection.from('item').select().eq('type',itemType)
 
    
     data.forEach(item => {
@@ -102,4 +109,28 @@ function displayItem(item) {
     itemDiv.appendChild(price)
     itemDiv.appendChild(description)
     itemDisplay.appendChild(itemDiv)
+}
+
+
+
+//seller
+
+async function sell(){
+    window.location.href = "sell.html"
+}
+
+async function submitItem(){
+    // var name=document.getElementById("itm_name").value;
+    // var desc=document.getElementById("itm_desc").value;
+    // var price=document.getElementById("itm_prc").value;
+    // var type=document.querySelector('input[name="item_type"]:checked').value;
+    var imageFile=document.getElementById("itm_image").files[0];
+
+    const { data, error } = await connection.storage.from('item_image').upload(uuidv4(), file)
+
+    if(error){
+        console.log(error);
+        alert("test")
+    }
+
 }
