@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+</head>
+<body>
+    <div id="user-info">
+        <p id="name">Name: </p>
+        <p id="email">Email: </p>
+        <p id="year">Year: </p>
+        <p id="course">Course: </p>
+        
+    </div>
+    <div id="edit-info" style="display:none;">
+        <p>Name: <input type="text" id="new-name"></p>
+        <p>Email: <span id="email2"></span></p>
+        <p>Year: <input type="text" id="new-year"></p>
+        <p>Course: <input type="text" id="new-course"></p>
+        <button onclick="saveChanges()">Save your changes</button>
+    </div>
+
+    <br><br>
+    <button id="change-button" onclick="changeuserinfo()">Change your info</button>
+
+
+    <script type="text/javascript" src="./code.js"></script>
+    <script>
+        displayuser()
+    </script>
+</body>
+</html>

@@ -68,7 +68,7 @@ async function existornot(){
 async function autosort(type){
     const urlParams = new URLSearchParams(window.location.search)
     const userId = urlParams.get('userId')
-    window.location.href = `display.html?type=${type}&userId=${userId}`
+    window.location.href = `display.html?type=${type}&userId=${userId}&`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -174,3 +174,35 @@ async function submitItem(){
 
 
 //profile page
+async function profile(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    window.location.href = `profile.html?userId=${userId}`
+}
+
+
+async function displayuser(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+
+    const {data, error} = await connection.from('customer').select().eq('cus_id', userId).single()
+
+    if(data){
+        document.getElementById('name').textContent=`Name: ${data.name}`
+        document.getElementById('email').textContent=`Email: ${data.email}`
+        document.getElementById('year').textContent=`Year: ${data.year}`
+        document.getElementById('course').textContent=`Course: ${data.course}`
+    }
+
+    if (error) {
+        console.error('Error fetching user details:', error)
+    }
+
+}
+
+function changeuserinfo(){
+    document.getElementById('change-button').style.display='none'
+    document.getElementById('user-info').style.display='none'
+    document.getElementById('edit-info').style.display='block'
+    document.getElementById('email2').textContent=document.getElementById('email').textContent.split(': ')[1];
+}
