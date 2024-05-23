@@ -271,3 +271,9 @@ async function changepassword(){
 async function viewitems(){
     
 }
+
+//backbutton
+function back(){
+    console.log("goweng back");
+    window.history.back();
+}
