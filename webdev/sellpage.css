@@ -24,6 +24,7 @@
     margin-bottom: 10px;
 }
 
+
 .radio{
     display: flex;
     justify-content: space-between;
@@ -35,10 +36,11 @@
     background-color: #e0e0e0;
     padding: 10px;
     border-radius: 20px;
-    margin-right: 10px;
+    margin-right: 50px;
 }
 .radio input {
-    margin-right: 10px;
+    margin:1px;
+    
 }
 
 .sell input[type="submit"] {
