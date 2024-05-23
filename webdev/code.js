@@ -4,7 +4,7 @@ const supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 
 const connection = createClient(supabase_url, supabase_key)
-const CDNURL = "https://gybwytwokqtgckwsflno.supabase.co/storage/buckets/item_image/"
+const storageURL = "https://gybwytwokqtgckwsflno.supabase.co/storage/v1/object/public/item_image/"
 
 // test code
 async function fetchData() {
@@ -22,7 +22,6 @@ fetchData()
 
 
 //sign up and log in page js
-
 async function addacc(){
     var name=document.getElementById("name").value
     var year=Number(document.getElementById("year").value)
@@ -36,13 +35,14 @@ async function addacc(){
         course:course,
         password:pass,
         email:email
-    })
+    }).select('cus_id')
 
     if (error) {
         console.error('Error:', error)
     } else {
         console.log('Insert successful:', data)
-        window.location.href = "mainpage.html" 
+        const userId=data[0].cus_id
+        window.location.href = `mainpage.html?userId=${userId}` 
     }
 
 }
@@ -51,10 +51,11 @@ async function existornot(){
     var email=document.getElementById("login-email").value
     var pass=document.getElementById("login-pass").value
 
-    const{data,error}=await connection.from('customer').select('email, password').eq('email',email).eq('password',pass)
+    const{data,error}=await connection.from('customer').select('cus_id, email, password').eq('email',email).eq('password',pass)
 
     if (data.length > 0) {
-        window.location.href = "mainpage.html"
+        const userId=data[0].cus_id
+        window.location.href = `mainpage.html?userId=${userId}`
     } else {
         alert('Either wrong password or email.')
       
@@ -64,15 +65,17 @@ async function existornot(){
 
 
 //main page js
-
 async function autosort(type){
-    window.location.href = `display.html?type=${type}`
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    window.location.href = `display.html?type=${type}&userId=${userId}`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     
     const urlParams = new URLSearchParams(window.location.search)
     const itemType = urlParams.get('type')
+   
 
     
     fetchItems(itemType)
@@ -100,7 +103,7 @@ function displayItem(item) {
 
     //sample only, change if item has an image
     const itemimg =document.createElement('img');
-    itemimg.src = "images/Book.png"
+    itemimg.src = item.imgurl
     //assuming naa nay page mo view sa item detail w/ seller contact, change lang kung unsa imo trippings
     const button =document.createElement('button');
     button.innerHTML=`contact seller`
@@ -113,6 +116,8 @@ function displayItem(item) {
 
     const description = document.createElement('p');
     description.textContent = `Description: ${item.desc}`
+
+   
 
     // Append elements to the container
         itemDivinner.appendChild(name)
@@ -127,23 +132,45 @@ function displayItem(item) {
 
 
 //seller
-
 async function sell(){
-    window.location.href = "sell.html"
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    window.location.href = `sell.html?userId=${userId}`
 }
 
 async function submitItem(){
-    // var name=document.getElementById("itm_name").value;
-    // var desc=document.getElementById("itm_desc").value;
-    // var price=document.getElementById("itm_prc").value;
-    // var type=document.querySelector('input[name="item_type"]:checked').value;
-    var imageFile=document.getElementById("itm_image").files[0];
+    var name=document.getElementById("itm_name").value;
+    var desc=document.getElementById("itm_desc").value;
+    var price=document.getElementById("itm_prc").value;
+    var type=document.querySelector('input[name="choice"]:checked').value;
+    const imageFile=document.getElementById("itm_image").files[0];
+    
 
-    const { data, error } = await connection.storage.from('item_image').upload(uuidv4(), file)
+    const{data,error}=await connection.storage.from('item_image').upload(imageFile.name, imageFile)
+    console.log("test select",data)
+    const imageURL=`${storageURL}${data.path}`
 
-    if(error){
-        console.log(error);
-        alert("test")
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+
+    const{data: insertData,error: insertError}=await connection.from('item').insert({
+        name:name,
+        price:price,
+        desc:desc,
+        type:type,
+        seller_id:userId,
+        imgurl:imageURL
+    })
+
+    if (insertError) {
+        console.error('Error inserting item:', insertError);
+        return;
     }
 
+    console.log('Item inserted successfully:', insertData);
+    alert("Item successfully posted")
+    
 }
+
+
+//profile page
