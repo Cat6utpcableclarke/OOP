@@ -185,7 +185,7 @@ async function displayuser(){
     const urlParams = new URLSearchParams(window.location.search)
     const userId = urlParams.get('userId')
 
-    const {data, error} = await connection.from('customer').select().eq('cus_id', userId).single()
+    const{data, error}=await connection.from('customer').select().eq('cus_id', userId).single()
 
     if(data){
         document.getElementById('name').textContent=`Name: ${data.name}`
@@ -201,8 +201,73 @@ async function displayuser(){
 }
 
 function changeuserinfo(){
-    document.getElementById('change-button').style.display='none'
     document.getElementById('user-info').style.display='none'
     document.getElementById('edit-info').style.display='block'
-    document.getElementById('email2').textContent=document.getElementById('email').textContent.split(': ')[1];
+
+    document.getElementById('email2').textContent=document.getElementById('email').textContent.split(': ')[1]
+    document.getElementById('new-name').value=document.getElementById('name').textContent.split(': ')[1]
+    document.getElementById('new-year').value=document.getElementById('year').textContent.split(': ')[1]
+    document.getElementById('new-course').value=document.getElementById('course').textContent.split(': ')[1]
+
+}
+
+async function savenewinfo(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+
+    var Nname=document.getElementById('new-name').value
+    var Nyear=document.getElementById('new-year').value
+    var Ncourse=document.getElementById('new-course').value
+
+    
+    const{data, error}=await connection.from('customer').update({
+        name: Nname,
+        year: Nyear,
+        course: Ncourse
+    }).eq('cus_id', userId)
+
+    if (error){
+        console.log('Error: ', error)
+    }
+
+
+    document.getElementById('user-info').style.display='block'
+    document.getElementById('edit-info').style.display='none'
+
+    document.getElementById('name').textContent=`Name: ${Nname}`
+    document.getElementById('year').textContent=`Year: ${Nyear}`
+    document.getElementById('course').textContent=`Course: ${Ncourse}`
+}
+
+async function changepassword(){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    var oldpass=document.getElementById('oldpass').value
+    var newpass=document.getElementById('newpass').value
+
+    const{data, error}=await connection.from('customer').select().eq('cus_id', userId).single()
+
+    if(data){
+        var dbpass=data.password
+
+        if(dbpass==oldpass){
+            console.log('pass match')
+
+            const{data, error}=await connection.from('customer').update({
+                password: newpass
+            }).eq('cus_id', userId)
+
+            oldpass=document.getElementById('oldpass').value=''
+            newpass=document.getElementById('newpass').value=''
+            document.getElementById('status').innerHTML="Change successful"
+
+        }else{
+            document.getElementById('status').innerHTML="<span style='color:red; font-weight:bold'>Old password does not match</span>"
+        }
+    }
+    
+}
+
+async function viewitems(){
+    
 }
