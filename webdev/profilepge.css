@@ -47,13 +47,6 @@
 }
 
 
-#itemsell p{
-    background-color:rgb(192, 192, 142);
-    padding: 10px;
-    width: fit-content;
-    border-radius: 5px;
-}
-
 #user-info button{
     background-color: rgb(58, 26, 26);
     padding: 10px;
@@ -106,7 +99,20 @@
     width: 250px;
 }
 
+.orders {
+    min-height: 250px;
+    height: fit-content;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+   
+}
 
+.orders .emptmsg {
+    font-size: x-large;
+    font-family: cursive;
+}
 /* Modal */
 
 .modal {
@@ -123,18 +129,59 @@
 }
 
 .modal-content {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(192, 192, 149);
     padding: 20px;
     border-radius: 5px;
-    width: 300px;
+    width: 350px;
     max-width: 80%;
     position: relative;
 }
+.modal-content form{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
 
-.close-button {
-    position: absolute;
+.modal-content form label{
+    background-color:rgba(61, 38, 38, 0.795) ;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+
+.modal-content form label input[type=text]{
+    background-color: rgb(235, 212, 185);
+}
+
+.modal-content button{
+    background-color: rgba(32, 20, 20, 0.795) ;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+.modal-content button:hover{
+    background-color: rgba(85, 61, 61, 0.795) ;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-content p{
+    font-size: x-large;
+}
+.close{
     top: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 30px;
+    width: fit-content;
+    border-radius: 250px;
+    margin-bottom: 2px;
+
+}
+.close:hover{
+   background-color: aliceblue;
+   transition: 0.3s;
 }
