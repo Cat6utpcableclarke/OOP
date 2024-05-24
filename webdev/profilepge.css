@@ -99,3 +99,9 @@
     background-color: rgb(61, 38, 38);
     transition: 0.3s;
 }
+
+
+.container  img{
+    height: 250px;
+    width: 250px;
+}

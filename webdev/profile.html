@@ -16,16 +16,13 @@
                <div class="name"><p>USC NIGHT MARKET</p></div>
                 <div class="profile"><p>PROFILE</p></div>
         </div><br>
-          <!--add back()js-->
         <div class="back"><button onclick="back()"><img src="images/backarrow.png"></button></div>
     </header><br><br>
 
 
-    <!-- side bar ni i-css lang -->
     <div class="pcontainer">
         <div class="sidebar">
             <ul>
-                <!-- kaning cursor pointer i-transfer niya sa css file -->
                 <li id="profilevande" >View and Edit Profile</li>
                 <li id="changepass" >Change Pass</li>
                 <li id="viewsell" >View Items you're selling</li>
@@ -55,15 +52,19 @@
             <p>The website is currently on its expiremental phase, as such we won't be able to retrieve your password if you ever forget it.</p>
             <p>Enter old password: <input type="text" id="oldpass"></p>
             <p>Enter new password: <input type="text" id="newpass"></p>
-            <p id="status"></p>
+            <p id="status" style="display:none"></p>
             <button onclick="changepassword()">Change</button>
         
     </div>
 
     <div id="itemsell" style="display:none">
-        <p>hello world still under construction</p>
+        <section>
+            <div id="item_display" class="container">
+                    <!-- Change id="item_display" to id="item_display_seller" . Mao ra i-change -->
+            </div>
+        </section>
     </div>
-    </div>
+    
     <br><br>
     
 
@@ -91,6 +92,7 @@
             document.getElementById('edit-info').style.display='none'
             document.getElementById('changepassinfo').style.display='none'
             document.getElementById('itemsell').style.display='block'
+            viewitems()
         })
         
     </script>
