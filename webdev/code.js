@@ -101,129 +101,135 @@ async function fetchItems(itemType) {
 //This is the revised displayItem where it can be applied to both display.html and profile.html
 //Kung mag lisod kag implement sa CSS sa ani adto sa ubos naay ItemofSeller Func didto.
 //I-enable to niya i-follow ang instrcutions naa didto. Naay instructions sa line 377, 391, 403
-function displayItem(item, includeButton=true) {
-    const itemDisplay = document.getElementById('item_display')
 
-    const itemDiv = document.createElement('div')
-    itemDiv.classList.add('item')
 
-    const itemDivinner = document.createElement('div')
-    itemDivinner.classList.add('inner');
+//UPDATE displayItem added now with modals check out line 654 for the new displayItem
+// and line 563 for the modal function. Murag mas sayon na i-css kay ako na gibalhin og modal
 
-    const itemimg =document.createElement('img');
-    itemimg.src = item.imgurl
 
-    const name = document.createElement('p')
-    name.textContent = `Name of product: ${item.name}`
+// function displayItem(item, includeButton=true) {
+//     const itemDisplay = document.getElementById('item_display')
 
-    const price = document.createElement('p')
-    price.textContent = `Price: ${item.price}`
+//     const itemDiv = document.createElement('div')
+//     itemDiv.classList.add('item')
 
-    const description = document.createElement('p');
-    description.textContent = `Description: ${item.desc}`
+//     const itemDivinner = document.createElement('div')
+//     itemDivinner.classList.add('inner');
 
-        itemDivinner.appendChild(name)
-        itemDivinner.appendChild(price)
-        itemDivinner.appendChild(description)
-        itemDiv.appendChild(itemimg);
-        itemDiv.appendChild(itemDivinner)
+//     const itemimg =document.createElement('img');
+//     itemimg.src = item.imgurl
+
+//     const name = document.createElement('p')
+//     name.textContent = `Name of product: ${item.name}`
+
+//     const price = document.createElement('p')
+//     price.textContent = `Price: ${item.price}`
+
+//     const description = document.createElement('p');
+//     description.textContent = `Description: ${item.desc}`
+
+//         itemDivinner.appendChild(name)
+//         itemDivinner.appendChild(price)
+//         itemDivinner.appendChild(description)
+//         itemDiv.appendChild(itemimg);
+//         itemDiv.appendChild(itemDivinner)
         
 
-        if(includeButton==true){
-            //Explanation: If includeButton==T, this means that the code is currently being used in display.html
-            //as such it will only have the contact seller button
-            const button =document.createElement('button');
-            button.innerHTML=`contact seller`
-            itemDivinner.appendChild(button);
-        }else{
-            //Otherwise, this would mean that the code is currently being used in profile.html
+//         if(includeButton==true){
+//             //Explanation: If includeButton==T, this means that the code is currently being used in display.html
+//             //as such it will only have the contact seller button
+//             const button =document.createElement('button');
+//             button.innerHTML=`contact seller`
+//             itemDivinner.appendChild(button);
+//         }else{
+//             //Otherwise, this would mean that the code is currently being used in profile.html
         
-            //Edit button
-            const button1 =document.createElement('button');
-            button1.innerHTML=`Edit Item`
-            button1.addEventListener('click', () => {
-                const editForm=document.createElement('form')
-                editForm.addEventListener('submit', (event) => {
-                    event.preventDefault()
-                    editItem(item)
-        
-        
-                })
+//             //Edit button
+//             const button1 =document.createElement('button');
+//             button1.innerHTML=`Edit Item`
+//             button1.addEventListener('click', () => {
+//                 const editForm=document.createElement('form')
+//                 editForm.addEventListener('submit', (event) => {
+//                     event.preventDefault()
+//                     editItem(item)
+
+                    
+//                 })
                 
-                const nameLabel=document.createElement('label')
-                nameLabel.textContent='New name: '
-                const nameInput=document.createElement('input')
-                nameInput.type='text'
-                nameInput.id='Nname'
-                nameInput.value=item.name
-                nameLabel.appendChild(nameInput)
-                editForm.appendChild(nameLabel)
+//                 const nameLabel=document.createElement('label')
+//                 nameLabel.textContent='New name: '
+//                 const nameInput=document.createElement('input')
+//                 nameInput.type='text'
+//                 nameInput.id='Nname'
+//                 nameInput.value=item.name
+//                 nameLabel.appendChild(nameInput)
+//                 editForm.appendChild(nameLabel)
         
-                const priceLabel=document.createElement('label')
-                priceLabel.textContent='New price: '
-                const priceInput=document.createElement('input')
-                priceInput.type='text'
-                priceInput.id='Nprice'
-                priceInput.value=item.price
-                priceLabel.appendChild(priceInput)
-                editForm.appendChild(priceLabel)
+//                 const priceLabel=document.createElement('label')
+//                 priceLabel.textContent='New price: '
+//                 const priceInput=document.createElement('input')
+//                 priceInput.type='text'
+//                 priceInput.id='Nprice'
+//                 priceInput.value=item.price
+//                 priceLabel.appendChild(priceInput)
+//                 editForm.appendChild(priceLabel)
         
-                const descLabel=document.createElement('label')
-                descLabel.textContent='New description: '
-                const descInput=document.createElement('input')
-                descInput.type='text'
-                descInput.id='Ndesc'
-                descInput.value=item.desc
-                descLabel.appendChild(descInput)
-                editForm.appendChild(descLabel)
+//                 const descLabel=document.createElement('label')
+//                 descLabel.textContent='New description: '
+//                 const descInput=document.createElement('input')
+//                 descInput.type='text'
+//                 descInput.id='Ndesc'
+//                 descInput.value=item.desc
+//                 descLabel.appendChild(descInput)
+//                 editForm.appendChild(descLabel)
         
-                const submitButton=document.createElement('button')
-                submitButton.type='submit'
-                submitButton.textContent='Save Changes'
-                editForm.appendChild(submitButton)
+//                 const submitButton=document.createElement('button')
+//                 submitButton.type='submit'
+//                 submitButton.textContent='Save Changes'
+//                 editForm.appendChild(submitButton)
         
                 
-                itemDisplay.replaceChild(editForm, itemDiv)
-            })
+//                 itemDisplay.replaceChild(editForm, itemDiv)
+//             })
         
-            //Delete button
-            const button2 =document.createElement('button')
-            button2.innerHTML=`Delete Item`
-            button2.addEventListener('click', () => {
+//             //Delete button
+//             const button2 =document.createElement('button')
+//             button2.innerHTML=`Delete Item`
+//             button2.addEventListener('click', () => {
                 
-                if(!document.getElementById('confirmation')){
-                    const confirmation=document.createElement('p')
-                    confirmation.textContent='Are you sure you want to delete this item?'
-                    confirmation.id='confirmation'
+//                 if(!document.getElementById('confirmation')){
+//                     const confirmation=document.createElement('p')
+//                     confirmation.textContent='Are you sure you want to delete this item?'
+//                     confirmation.id='confirmation'
 
-                    const buttonY=document.createElement('button')
-                    buttonY.innerHTML='Yes'
-                    buttonY.addEventListener('click', () => {
-                        deleteItem(item)
-                    })
+//                     const buttonY=document.createElement('button')
+//                     buttonY.innerHTML='Yes'
+//                     buttonY.addEventListener('click', () => {
+//                         deleteItem(item)
+//                     })
 
-                    const buttonN=document.createElement('button')
-                    buttonN.innerHTML='No'
-                    buttonN.addEventListener('click', () => {
-                        itemDivinner.removeChild(confirmation)
-                        itemDivinner.removeChild(buttonY)
-                        itemDivinner.removeChild(buttonN)
-                    })
+//                     const buttonN=document.createElement('button')
+//                     buttonN.innerHTML='No'
+//                     buttonN.addEventListener('click', () => {
+//                         itemDivinner.removeChild(confirmation)
+//                         itemDivinner.removeChild(buttonY)
+//                         itemDivinner.removeChild(buttonN)
+//                     })
 
-                    itemDivinner.appendChild(confirmation)
-                    itemDivinner.appendChild(buttonY)
-                    itemDivinner.appendChild(buttonN)
+//                     itemDivinner.appendChild(confirmation)
+//                     itemDivinner.appendChild(buttonY)
+//                     itemDivinner.appendChild(buttonN)
 
-                }
-            })
+//                 }
+//             })
 
 
-            itemDivinner.appendChild(button1)
-            itemDivinner.appendChild(button2)
-        }
+//             itemDivinner.appendChild(button1)
+//             itemDivinner.appendChild(button2)
+//         }
 
-        itemDisplay.appendChild(itemDiv)
-}
+//         itemDisplay.appendChild(itemDiv)
+// }
 
 
 
@@ -404,117 +410,122 @@ function clearItems() {
 // built for the profile page. Kung mag lisod kag implement sa CSS sa katong modified na
 // displayItem kani nalang gamita og i-edit. WALA RA KAY ICHANGE ANI NA FUNCTION
 //Sidenote: Naa kay i-edit sa profile.html aron mu andar ang js naa ray comment didto
-function ItemofSeller(item) {
-    const itemDisplay = document.getElementById('item_display_seller')
 
-    // Create HTML elements to display item information
-    const itemDiv = document.createElement('div')
-    itemDiv.classList.add('item')
-
-    const itemDivinner = document.createElement('div')
-    itemDivinner.classList.add('inner');
-
-    //sample only, change if item has an image
-    const itemimg =document.createElement('img');
-    itemimg.src = item.imgurl
-
-    const name = document.createElement('p')
-    name.textContent = `Name of product: ${item.name}`
-
-    const price = document.createElement('p')
-    price.textContent = `Price: ${item.price}`
-
-    const description = document.createElement('p');
-    description.textContent = `Description: ${item.desc}`
-
-    const button1 =document.createElement('button');
-    button1.innerHTML=`Edit Item`
-    button1.addEventListener('click', () => {
-        const editForm=document.createElement('form')
-        editForm.addEventListener('submit', (event) => {
-            event.preventDefault()
-            editItem(item)
+//UPDATE displayItem added now with modals check out line 654 for the new displayItem
+// and line 563 for the modal function. Murag mas sayon na i-css kay ako na gibalhin og modal
 
 
-        })
+// function ItemofSeller(item) {
+//     const itemDisplay = document.getElementById('item_display_seller')
+
+//     // Create HTML elements to display item information
+//     const itemDiv = document.createElement('div')
+//     itemDiv.classList.add('item')
+
+//     const itemDivinner = document.createElement('div')
+//     itemDivinner.classList.add('inner');
+
+//     //sample only, change if item has an image
+//     const itemimg =document.createElement('img');
+//     itemimg.src = item.imgurl
+
+//     const name = document.createElement('p')
+//     name.textContent = `Name of product: ${item.name}`
+
+//     const price = document.createElement('p')
+//     price.textContent = `Price: ${item.price}`
+
+//     const description = document.createElement('p');
+//     description.textContent = `Description: ${item.desc}`
+
+//     const button1 =document.createElement('button');
+//     button1.innerHTML=`Edit Item`
+//     button1.addEventListener('click', () => {
+//         const editForm=document.createElement('form')
+//         editForm.addEventListener('submit', (event) => {
+//             event.preventDefault()
+//             editItem(item)
+
+
+//         })
         
-        const nameLabel=document.createElement('label')
-        nameLabel.textContent='New name: '
-        const nameInput=document.createElement('input')
-        nameInput.type='text'
-        nameInput.id='Nname'
-        nameInput.value=item.name
-        nameLabel.appendChild(nameInput)
-        editForm.appendChild(nameLabel)
+//         const nameLabel=document.createElement('label')
+//         nameLabel.textContent='New name: '
+//         const nameInput=document.createElement('input')
+//         nameInput.type='text'
+//         nameInput.id='Nname'
+//         nameInput.value=item.name
+//         nameLabel.appendChild(nameInput)
+//         editForm.appendChild(nameLabel)
 
-        const priceLabel=document.createElement('label')
-        priceLabel.textContent='New price: '
-        const priceInput=document.createElement('input')
-        priceInput.type='text'
-        priceInput.id='Nprice'
-        priceInput.value=item.price
-        priceLabel.appendChild(priceInput)
-        editForm.appendChild(priceLabel)
+//         const priceLabel=document.createElement('label')
+//         priceLabel.textContent='New price: '
+//         const priceInput=document.createElement('input')
+//         priceInput.type='text'
+//         priceInput.id='Nprice'
+//         priceInput.value=item.price
+//         priceLabel.appendChild(priceInput)
+//         editForm.appendChild(priceLabel)
 
-        const descLabel=document.createElement('label')
-        descLabel.textContent='New description: '
-        const descInput=document.createElement('input')
-        descInput.type='text'
-        descInput.id='Ndesc'
-        descInput.value=item.desc
-        descLabel.appendChild(descInput)
-        editForm.appendChild(descLabel)
+//         const descLabel=document.createElement('label')
+//         descLabel.textContent='New description: '
+//         const descInput=document.createElement('input')
+//         descInput.type='text'
+//         descInput.id='Ndesc'
+//         descInput.value=item.desc
+//         descLabel.appendChild(descInput)
+//         editForm.appendChild(descLabel)
 
-        const submitButton=document.createElement('button')
-        submitButton.type='submit'
-        submitButton.textContent='Save Changes'
-        editForm.appendChild(submitButton)
+//         const submitButton=document.createElement('button')
+//         submitButton.type='submit'
+//         submitButton.textContent='Save Changes'
+//         editForm.appendChild(submitButton)
 
-        // Replace item display with edit form
-        itemDisplay.replaceChild(editForm, itemDiv)
-    })
+//         // Replace item display with edit form
+//         itemDisplay.replaceChild(editForm, itemDiv)
+//     })
 
-    const button2 =document.createElement('button')
-    button2.innerHTML=`Delete Item`
-    button2.addEventListener('click', () => {
+//     const button2 =document.createElement('button')
+//     button2.innerHTML=`Delete Item`
+//     button2.addEventListener('click', () => {
         
-        if(!document.getElementById('confirmation')){
-            const confirmation=document.createElement('p')
-            confirmation.textContent='Are you sure you want to delete this item?'
-            confirmation.id='confirmation'
+//         if(!document.getElementById('confirmation')){
+//             const confirmation=document.createElement('p')
+//             confirmation.textContent='Are you sure you want to delete this item?'
+//             confirmation.id='confirmation'
 
-            const buttonY=document.createElement('button')
-            buttonY.innerHTML='Yes'
-            buttonY.addEventListener('click', () => {
-                deleteItem(item)
-            })
+//             const buttonY=document.createElement('button')
+//             buttonY.innerHTML='Yes'
+//             buttonY.addEventListener('click', () => {
+//                 deleteItem(item)
+//             })
 
-            const buttonN=document.createElement('button')
-            buttonN.innerHTML='No'
-            buttonN.addEventListener('click', () => {
-                itemDivinner.removeChild(confirmation)
-                itemDivinner.removeChild(buttonY)
-                itemDivinner.removeChild(buttonN)
-            })
+//             const buttonN=document.createElement('button')
+//             buttonN.innerHTML='No'
+//             buttonN.addEventListener('click', () => {
+//                 itemDivinner.removeChild(confirmation)
+//                 itemDivinner.removeChild(buttonY)
+//                 itemDivinner.removeChild(buttonN)
+//             })
 
-            itemDivinner.appendChild(confirmation)
-            itemDivinner.appendChild(buttonY)
-            itemDivinner.appendChild(buttonN)
+//             itemDivinner.appendChild(confirmation)
+//             itemDivinner.appendChild(buttonY)
+//             itemDivinner.appendChild(buttonN)
 
-        }
-    })
+//         }
+//     })
    
 
-    // Append elements to the container
-        itemDivinner.appendChild(name)
-        itemDivinner.appendChild(price)
-        itemDivinner.appendChild(description)
-        itemDivinner.appendChild(button1)
-        itemDivinner.appendChild(button2)
-        itemDiv.appendChild(itemimg)
-        itemDiv.appendChild(itemDivinner)
-        itemDisplay.appendChild(itemDiv)
-}
+//     // Append elements to the container
+//         itemDivinner.appendChild(name)
+//         itemDivinner.appendChild(price)
+//         itemDivinner.appendChild(description)
+//         itemDivinner.appendChild(button1)
+//         itemDivinner.appendChild(button2)
+//         itemDiv.appendChild(itemimg)
+//         itemDiv.appendChild(itemDivinner)
+//         itemDisplay.appendChild(itemDiv)
+// }
 
 
 async function editItem(item){
@@ -551,4 +562,156 @@ async function deleteItem(item){
     
     
     location.reload()
+}
+
+
+function showModal(type, item){
+    const modal = document.createElement('div')
+    modal.classList.add('modal')
+
+    const modalContent=document.createElement('div')
+    modalContent.classList.add('modal-content')
+
+    const close=document.createElement('span')
+    close.classList.add('close')
+    close.style.cursor='pointer'
+    close.innerHTML='&times'
+    close.addEventListener('click', () =>{
+        modal.remove()
+    })
+    modalContent.appendChild(close)
+
+    if(type==='edit'){
+        const editForm=document.createElement('form')
+        editForm.addEventListener('submit', (event) => {
+            event.preventDefault()
+            editItem(item)
+            modal.remove()
+
+            
+        })
+
+        const nameLabel=document.createElement('label')
+                nameLabel.textContent='New name: '
+                const nameInput=document.createElement('input')
+                nameInput.type='text'
+                nameInput.id='Nname'
+                nameInput.value=item.name
+                nameLabel.appendChild(nameInput)
+                editForm.appendChild(nameLabel)
+        
+                const priceLabel=document.createElement('label')
+                priceLabel.textContent='New price: '
+                const priceInput=document.createElement('input')
+                priceInput.type='text'
+                priceInput.id='Nprice'
+                priceInput.value=item.price
+                priceLabel.appendChild(priceInput)
+                editForm.appendChild(priceLabel)
+        
+                const descLabel=document.createElement('label')
+                descLabel.textContent='New description: '
+                const descInput=document.createElement('input')
+                descInput.type='text'
+                descInput.id='Ndesc'
+                descInput.value=item.desc
+                descLabel.appendChild(descInput)
+                editForm.appendChild(descLabel)
+        
+                const submitButton=document.createElement('button')
+                submitButton.type='submit'
+                submitButton.textContent='Save Changes'
+                editForm.appendChild(submitButton)
+
+                modalContent.appendChild(editForm)
+    }else if(type==='delete'){
+        const confirmation=document.createElement('p')
+        confirmation.textContent='Are you sure you want to delete this item?'
+        modalContent.appendChild(confirmation)
+
+        const buttonY=document.createElement('button')
+        buttonY.innerHTML='Yes'
+        buttonY.addEventListener('click', () => {
+            deleteItem(item)
+            modal.remove()
+        })
+
+        const buttonN=document.createElement('button')
+        buttonN.innerHTML='No'
+        buttonN.addEventListener('click', () => {
+            modal.remove()
+        })
+
+        modalContent.appendChild(buttonY)
+        modalContent.appendChild(buttonN)
+    }
+
+    modal.appendChild(modalContent)
+    document.body.appendChild(modal)
+
+
+}
+
+
+
+
+
+
+function displayItem(item, includeButton=true) {
+    const itemDisplay = document.getElementById('item_display')
+
+    const itemDiv = document.createElement('div')
+    itemDiv.classList.add('item')
+
+    const itemDivinner = document.createElement('div')
+    itemDivinner.classList.add('inner');
+
+    const itemimg =document.createElement('img');
+    itemimg.src = item.imgurl
+
+    const name = document.createElement('p')
+    name.textContent = `Name of product: ${item.name}`
+
+    const price = document.createElement('p')
+    price.textContent = `Price: ${item.price}`
+
+    const description = document.createElement('p');
+    description.textContent = `Description: ${item.desc}`
+
+        itemDivinner.appendChild(name)
+        itemDivinner.appendChild(price)
+        itemDivinner.appendChild(description)
+        itemDiv.appendChild(itemimg);
+        itemDiv.appendChild(itemDivinner)
+        
+
+        if(includeButton==true){
+            //Explanation: If includeButton==T, this means that the code is currently being used in display.html
+            //as such it will only have the contact seller button
+            const button =document.createElement('button');
+            button.innerHTML=`contact seller`
+            itemDivinner.appendChild(button);
+        }else{
+            //Otherwise, this would mean that the code is currently being used in profile.html
+        
+            //Edit button
+            const button1 =document.createElement('button');
+            button1.innerHTML=`Edit Item`
+            button1.addEventListener('click', () => {
+                showModal('edit', item)
+            })
+        
+            //Delete button
+            const button2 =document.createElement('button')
+            button2.innerHTML=`Delete Item`
+            button2.addEventListener('click', () => {
+                showModal('delete', item)
+            })
+
+
+            itemDivinner.appendChild(button1)
+            itemDivinner.appendChild(button2)
+        }
+
+        itemDisplay.appendChild(itemDiv)
 }
