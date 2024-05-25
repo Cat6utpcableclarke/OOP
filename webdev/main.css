@@ -53,6 +53,10 @@ header{
     width: fit-content;
     height:fit-content;
     border-radius: 10px;
+    cursor: pointer;
+}
+.profile:hover{
+    background-color: rgb(238, 238, 161);
 }
 
 .msg{
