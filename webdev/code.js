@@ -97,142 +97,6 @@ async function fetchItems(itemType) {
 
 }
 
-
-//This is the revised displayItem where it can be applied to both display.html and profile.html
-//Kung mag lisod kag implement sa CSS sa ani adto sa ubos naay ItemofSeller Func didto.
-//I-enable to niya i-follow ang instrcutions naa didto. Naay instructions sa line 377, 391, 403
-
-
-//UPDATE displayItem added now with modals check out line 654 for the new displayItem
-// and line 563 for the modal function. Murag mas sayon na i-css kay ako na gibalhin og modal
-
-
-// function displayItem(item, includeButton=true) {
-//     const itemDisplay = document.getElementById('item_display')
-
-//     const itemDiv = document.createElement('div')
-//     itemDiv.classList.add('item')
-
-//     const itemDivinner = document.createElement('div')
-//     itemDivinner.classList.add('inner');
-
-//     const itemimg =document.createElement('img');
-//     itemimg.src = item.imgurl
-
-//     const name = document.createElement('p')
-//     name.textContent = `Name of product: ${item.name}`
-
-//     const price = document.createElement('p')
-//     price.textContent = `Price: ${item.price}`
-
-//     const description = document.createElement('p');
-//     description.textContent = `Description: ${item.desc}`
-
-//         itemDivinner.appendChild(name)
-//         itemDivinner.appendChild(price)
-//         itemDivinner.appendChild(description)
-//         itemDiv.appendChild(itemimg);
-//         itemDiv.appendChild(itemDivinner)
-        
-
-//         if(includeButton==true){
-//             //Explanation: If includeButton==T, this means that the code is currently being used in display.html
-//             //as such it will only have the contact seller button
-//             const button =document.createElement('button');
-//             button.innerHTML=`contact seller`
-//             itemDivinner.appendChild(button);
-//         }else{
-//             //Otherwise, this would mean that the code is currently being used in profile.html
-        
-//             //Edit button
-//             const button1 =document.createElement('button');
-//             button1.innerHTML=`Edit Item`
-//             button1.addEventListener('click', () => {
-//                 const editForm=document.createElement('form')
-//                 editForm.addEventListener('submit', (event) => {
-//                     event.preventDefault()
-//                     editItem(item)
-
-                    
-//                 })
-                
-//                 const nameLabel=document.createElement('label')
-//                 nameLabel.textContent='New name: '
-//                 const nameInput=document.createElement('input')
-//                 nameInput.type='text'
-//                 nameInput.id='Nname'
-//                 nameInput.value=item.name
-//                 nameLabel.appendChild(nameInput)
-//                 editForm.appendChild(nameLabel)
-        
-//                 const priceLabel=document.createElement('label')
-//                 priceLabel.textContent='New price: '
-//                 const priceInput=document.createElement('input')
-//                 priceInput.type='text'
-//                 priceInput.id='Nprice'
-//                 priceInput.value=item.price
-//                 priceLabel.appendChild(priceInput)
-//                 editForm.appendChild(priceLabel)
-        
-//                 const descLabel=document.createElement('label')
-//                 descLabel.textContent='New description: '
-//                 const descInput=document.createElement('input')
-//                 descInput.type='text'
-//                 descInput.id='Ndesc'
-//                 descInput.value=item.desc
-//                 descLabel.appendChild(descInput)
-//                 editForm.appendChild(descLabel)
-        
-//                 const submitButton=document.createElement('button')
-//                 submitButton.type='submit'
-//                 submitButton.textContent='Save Changes'
-//                 editForm.appendChild(submitButton)
-        
-                
-//                 itemDisplay.replaceChild(editForm, itemDiv)
-//             })
-        
-//             //Delete button
-//             const button2 =document.createElement('button')
-//             button2.innerHTML=`Delete Item`
-//             button2.addEventListener('click', () => {
-                
-//                 if(!document.getElementById('confirmation')){
-//                     const confirmation=document.createElement('p')
-//                     confirmation.textContent='Are you sure you want to delete this item?'
-//                     confirmation.id='confirmation'
-
-//                     const buttonY=document.createElement('button')
-//                     buttonY.innerHTML='Yes'
-//                     buttonY.addEventListener('click', () => {
-//                         deleteItem(item)
-//                     })
-
-//                     const buttonN=document.createElement('button')
-//                     buttonN.innerHTML='No'
-//                     buttonN.addEventListener('click', () => {
-//                         itemDivinner.removeChild(confirmation)
-//                         itemDivinner.removeChild(buttonY)
-//                         itemDivinner.removeChild(buttonN)
-//                     })
-
-//                     itemDivinner.appendChild(confirmation)
-//                     itemDivinner.appendChild(buttonY)
-//                     itemDivinner.appendChild(buttonN)
-
-//                 }
-//             })
-
-
-//             itemDivinner.appendChild(button1)
-//             itemDivinner.appendChild(button2)
-//         }
-
-//         itemDisplay.appendChild(itemDiv)
-// }
-
-
-
 // ------------------------------Seller JS--------------------------------------------------
 async function sell(){
     const urlParams = new URLSearchParams(window.location.search)
@@ -382,9 +246,7 @@ async function viewitems(){
 
     data.forEach(item => {
         displayItem(item,false)
-        //If you're going to use ItemofSeller function replace
-        // displayItem with ItemofSeller(item)
-        //Sidenote: Naa kay i-edit sa profile.html aron mu andar ang js naa ray comment didto
+       
     });
 
     if(error){
@@ -395,146 +257,14 @@ async function viewitems(){
 
 function clearItems() {
     const itemDisplay=document.getElementById('item_display')
-    // If you're going to use the ItemofSeller function replace the 
-    // const itemDisplay=document.getElementById('item_display') to 
-    // const itemDisplay=document.getElementById('item_display_seller')
-    //Sidenote: Naa kay i-edit sa profile.html aron mu andar ang js naa ray comment didto
     itemDisplay.innerHTML =''
 }
-
-
-
-
-
-// Explanation: This Function is similar to displayItem but is specifically
-// built for the profile page. Kung mag lisod kag implement sa CSS sa katong modified na
-// displayItem kani nalang gamita og i-edit. WALA RA KAY ICHANGE ANI NA FUNCTION
-//Sidenote: Naa kay i-edit sa profile.html aron mu andar ang js naa ray comment didto
-
-//UPDATE displayItem added now with modals check out line 654 for the new displayItem
-// and line 563 for the modal function. Murag mas sayon na i-css kay ako na gibalhin og modal
-
-
-// function ItemofSeller(item) {
-//     const itemDisplay = document.getElementById('item_display_seller')
-
-//     // Create HTML elements to display item information
-//     const itemDiv = document.createElement('div')
-//     itemDiv.classList.add('item')
-
-//     const itemDivinner = document.createElement('div')
-//     itemDivinner.classList.add('inner');
-
-//     //sample only, change if item has an image
-//     const itemimg =document.createElement('img');
-//     itemimg.src = item.imgurl
-
-//     const name = document.createElement('p')
-//     name.textContent = `Name of product: ${item.name}`
-
-//     const price = document.createElement('p')
-//     price.textContent = `Price: ${item.price}`
-
-//     const description = document.createElement('p');
-//     description.textContent = `Description: ${item.desc}`
-
-//     const button1 =document.createElement('button');
-//     button1.innerHTML=`Edit Item`
-//     button1.addEventListener('click', () => {
-//         const editForm=document.createElement('form')
-//         editForm.addEventListener('submit', (event) => {
-//             event.preventDefault()
-//             editItem(item)
-
-
-//         })
-        
-//         const nameLabel=document.createElement('label')
-//         nameLabel.textContent='New name: '
-//         const nameInput=document.createElement('input')
-//         nameInput.type='text'
-//         nameInput.id='Nname'
-//         nameInput.value=item.name
-//         nameLabel.appendChild(nameInput)
-//         editForm.appendChild(nameLabel)
-
-//         const priceLabel=document.createElement('label')
-//         priceLabel.textContent='New price: '
-//         const priceInput=document.createElement('input')
-//         priceInput.type='text'
-//         priceInput.id='Nprice'
-//         priceInput.value=item.price
-//         priceLabel.appendChild(priceInput)
-//         editForm.appendChild(priceLabel)
-
-//         const descLabel=document.createElement('label')
-//         descLabel.textContent='New description: '
-//         const descInput=document.createElement('input')
-//         descInput.type='text'
-//         descInput.id='Ndesc'
-//         descInput.value=item.desc
-//         descLabel.appendChild(descInput)
-//         editForm.appendChild(descLabel)
-
-//         const submitButton=document.createElement('button')
-//         submitButton.type='submit'
-//         submitButton.textContent='Save Changes'
-//         editForm.appendChild(submitButton)
-
-//         // Replace item display with edit form
-//         itemDisplay.replaceChild(editForm, itemDiv)
-//     })
-
-//     const button2 =document.createElement('button')
-//     button2.innerHTML=`Delete Item`
-//     button2.addEventListener('click', () => {
-        
-//         if(!document.getElementById('confirmation')){
-//             const confirmation=document.createElement('p')
-//             confirmation.textContent='Are you sure you want to delete this item?'
-//             confirmation.id='confirmation'
-
-//             const buttonY=document.createElement('button')
-//             buttonY.innerHTML='Yes'
-//             buttonY.addEventListener('click', () => {
-//                 deleteItem(item)
-//             })
-
-//             const buttonN=document.createElement('button')
-//             buttonN.innerHTML='No'
-//             buttonN.addEventListener('click', () => {
-//                 itemDivinner.removeChild(confirmation)
-//                 itemDivinner.removeChild(buttonY)
-//                 itemDivinner.removeChild(buttonN)
-//             })
-
-//             itemDivinner.appendChild(confirmation)
-//             itemDivinner.appendChild(buttonY)
-//             itemDivinner.appendChild(buttonN)
-
-//         }
-//     })
-   
-
-//     // Append elements to the container
-//         itemDivinner.appendChild(name)
-//         itemDivinner.appendChild(price)
-//         itemDivinner.appendChild(description)
-//         itemDivinner.appendChild(button1)
-//         itemDivinner.appendChild(button2)
-//         itemDiv.appendChild(itemimg)
-//         itemDiv.appendChild(itemDivinner)
-//         itemDisplay.appendChild(itemDiv)
-// }
-
 
 async function editItem(item){
 
     var newname=document.getElementById('Nname').value
     var newprice=document.getElementById('Nprice').value
     var newdesc=document.getElementById('Ndesc').value
-
-
 
     const{data, error}=await connection.from('item').update({
         name: newname,
@@ -545,21 +275,17 @@ async function editItem(item){
     if(error){
         console.log('error: ', error)
     }
-
     location.reload()
 }
 
 async function deleteItem(item){
 
-    
     var DELimgurl=item.imgurl
     const pathStartIndex = DELimgurl.indexOf(storageURL) + storageURL.length;
     const dataPath = DELimgurl.substring(pathStartIndex);
    
     const{data: deletedata, error: deleteerror}=await connection.from('item').delete().eq('item_id', item.item_id)
     const{data:bucketdata, error:bucketerror } = await connection.storage.from('item_image').remove([dataPath])
-    
-    
     
     location.reload()
 }
@@ -644,6 +370,22 @@ function showModal(type, item){
 
         modalContent.appendChild(buttonY)
         modalContent.appendChild(buttonN)
+    }else if(type==='contact'){
+        const description=document.createElement('p')
+        description.textContent = `Description: ${item.desc}`
+        
+
+        const orderbtn=document.createElement('button')
+        orderbtn.innerHTML='Order'
+        orderbtn.addEventListener('click', () =>{
+            orderfunc(item)
+            modal.remove()
+        })
+
+
+        modalContent.appendChild(description)
+        modalContent.appendChild(orderbtn)
+
     }
 
     modal.appendChild(modalContent)
@@ -657,9 +399,40 @@ function showModal(type, item){
 
 
 
-function displayItem(item, includeButton=true) {
-    const itemDisplay = document.getElementById('item_display')
+async function displayItem(item, includeButton=true) {
+    const pathname=window.location.pathname
 
+    if(pathname.includes('display.html')){
+        const itemDisplay=document.getElementById('item_display')
+        placeItem(item, itemDisplay, includeButton, false)
+    }else if(pathname.includes('profile.html')){
+
+        const{data: orderdata,error: ordererror}=await connection.from('order').select()
+        let matchFound=false
+        for(let i=0; i<orderdata.length; i++){
+            const orderL=orderdata[i]
+    
+            if(orderL.item_to_buy_id == item.item_id){
+                console.log("match found")
+                matchFound=true
+
+                const itemDisplay=document.getElementById('items_sell')
+                placeItem(item, itemDisplay, includeButton, true)
+                break;
+            }
+        }
+    
+        if(!matchFound){
+            const itemDisplay=document.getElementById('item_display')
+            placeItem(item, itemDisplay, includeButton, false)
+        }
+    }
+    
+    
+   
+}
+
+function placeItem(item, itemDisplay, includeButton, beingsold){
     const itemDiv = document.createElement('div')
     itemDiv.classList.add('item')
 
@@ -670,48 +443,103 @@ function displayItem(item, includeButton=true) {
     itemimg.src = item.imgurl
 
     const name = document.createElement('p')
-    name.textContent = `Name of product: ${item.name}`
+    name.textContent = `${item.name}`
 
     const price = document.createElement('p')
-    price.textContent = `Price: ${item.price}`
+    price.textContent = `Php ${item.price}`
+    
 
-    const description = document.createElement('p');
-    description.textContent = `Description: ${item.desc}`
-
-        itemDivinner.appendChild(name)
-        itemDivinner.appendChild(price)
-        itemDivinner.appendChild(description)
-        itemDiv.appendChild(itemimg);
-        itemDiv.appendChild(itemDivinner)
+    itemDivinner.appendChild(name)
+    itemDivinner.appendChild(price)
+    
+    itemDiv.appendChild(itemimg);
+    itemDiv.appendChild(itemDivinner)
         
 
         if(includeButton==true){
             //Explanation: If includeButton==T, this means that the code is currently being used in display.html
             //as such it will only have the contact seller button
-            const button =document.createElement('button');
-            button.innerHTML=`contact seller`
-            itemDivinner.appendChild(button);
+            const contact=document.createElement('button');
+            contact.innerHTML=`Details`
+            contact.addEventListener('click', () => {
+                showModal('contact', item)
+            })
+            
+
+
+            itemDivinner.appendChild(contact);
         }else{
-            //Otherwise, this would mean that the code is currently being used in profile.html
-        
-            //Edit button
-            const button1 =document.createElement('button');
-            button1.innerHTML=`Edit Item`
-            button1.addEventListener('click', () => {
-                showModal('edit', item)
-            })
-        
-            //Delete button
-            const button2 =document.createElement('button')
-            button2.innerHTML=`Delete Item`
-            button2.addEventListener('click', () => {
-                showModal('delete', item)
-            })
+             //Otherwise, this would mean that the code is currently being used in profile.html
+            const description = document.createElement('p');
+            description.textContent = `Description: ${item.desc}`
 
+            if(beingsold==true){
+                const orderdone=document.createElement('button')
+                orderdone.innerHTML=`Order Complete`
+                orderdone.addEventListener('click', () => {
+                    ordercomplete(item)
+                })
 
-            itemDivinner.appendChild(button1)
-            itemDivinner.appendChild(button2)
+                itemDivinner.appendChild(orderdone)
+            }else{
+                //Edit button
+                const button1 =document.createElement('button')
+                button1.innerHTML=`Edit Item`
+                button1.addEventListener('click', () => {
+                    showModal('edit', item)
+                })
+
+                //Delete button
+                const button2 =document.createElement('button')
+                button2.innerHTML=`Delete Item`
+                button2.addEventListener('click', () => {
+                    showModal('delete', item)
+                })
+
+                itemDivinner.appendChild(description)
+                itemDivinner.appendChild(button1)
+                itemDivinner.appendChild(button2)
+            }
+
+           
+            
         }
 
         itemDisplay.appendChild(itemDiv)
+}
+
+
+async function orderfunc(item){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    
+
+    const{data,error}=await connection.from('order').insert({
+        buyer_id:userId,
+        item_to_buy_id:item.item_id
+    }).select('order_id')
+}
+
+async function ordercomplete(item){
+    const urlParams = new URLSearchParams(window.location.search)
+    const userId = urlParams.get('userId')
+    var order_id
+
+    const{data,error}=await connection.from('order').select()
+    
+    for(let i=0; i<data.length; i++){
+        const orderL=data[i]
+
+        if(orderL.item_to_buy_id == item.item_id){
+            order_id=orderL.order_id
+            break;
+        }
+    }
+   
+    console.log(order_id)
+
+    const{data: deletedata, error: deleteerror}=await connection.from('order').delete().eq('order_id', order_id)
+
+    location.reload()
+
 }
