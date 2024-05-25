@@ -35,22 +35,31 @@ async function addacc(){
     var email=document.getElementById("email").value
     var pass=document.getElementById("pass").value
 
-    const{data,error}=await connection.from('customer').insert({
-        name:name,
-        year:year,
-        course:course,
-        password:pass,
-        email:email
-    }).select('cus_id')
+    const{data:cData, error:eData}=await connection.from('customer').select('email').eq('email', email)
 
-    if (error) {
-        console.error('Error:', error)
-    } else {
-        console.log('Insert successful:', data)
-        const userId=data[0].cus_id
-        window.location.href = `mainpage.html?userId=${userId}` 
+    if (cData.length > 0) {
+        alert('User already exists')
+    }else{
+        const{data,error}=await connection.from('customer').insert({
+            name:name,
+            year:year,
+            course:course,
+            password:pass,
+            email:email
+        }).select('cus_id')
+
+        if (error) {
+            console.error('Error:', error)
+        } else {
+            console.log('Insert successful:', data)
+            const userId=data[0].cus_id
+            window.location.href = `mainpage.html?userId=${userId}` 
+        }
+    
     }
 
+
+    
 }
 
 async function existornot(){
@@ -542,4 +551,8 @@ async function ordercomplete(item){
 
     location.reload()
 
+}
+
+function logout(){
+    window.location.href = `index.html`
 }
