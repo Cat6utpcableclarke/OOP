@@ -84,8 +84,16 @@
     <script type="text/javascript" src="./code.js"></script>
     <script>
         displayuser()
+        
+        function removeActiveClass() {
+        document.querySelectorAll('.sidebar ul li').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
 
         document.getElementById('profilevande').addEventListener('click', () => {
+            removeActiveClass();
+            document.getElementById('profilevande').classList.add('active');   
             document.getElementById('user-info').style.display='block'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('itemsell').style.display='none'
@@ -93,6 +101,8 @@
         })
 
         document.getElementById('changepass').addEventListener('click', () => {
+            removeActiveClass();
+            document.getElementById('changepass').classList.add('active');
             document.getElementById('user-info').style.display='none'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('itemsell').style.display='none'
@@ -100,6 +110,8 @@
         })
 
         document.getElementById('viewsell').addEventListener('click', () => {
+            removeActiveClass();
+            document.getElementById('viewsell').classList.add('active');
             document.getElementById('user-info').style.display='none'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('changepassinfo').style.display='none'

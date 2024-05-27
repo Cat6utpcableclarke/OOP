@@ -1,18 +1,21 @@
 .pcontainer{
+    text-align: center;
     background-color:rgb(75, 90, 50);
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    justify-content: center;
+    padding: 20px;
     margin-left: 20%;
     margin-right: 20%;
     border-radius: 30px;
+    
+}
+.sidebar ul{
+    margin-right: 30px;
 }
 
 .sidebar ul li{
     display: inline-flex;
-    justify-content: space-between;
     background-color: rgb(192, 192, 149);
     padding: 10px;
     border-radius: 10px;
@@ -23,6 +26,11 @@
 
 .sidebar ul li:hover{
     background-color:rgb(216, 216, 192);
+    transition: 0.3s;
+}
+
+.sidebar ul li.active {
+    background-color: rgb(216, 216, 192);
     transition: 0.3s;
 }
 #user-info p{
@@ -185,3 +193,5 @@
    background-color: aliceblue;
    transition: 0.3s;
 }
+
+
