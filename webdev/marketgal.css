@@ -42,11 +42,13 @@ section{
     font-family: cursive;
     padding: 5px;
     font-weight: bold;
-    font-size: medium
+    font-size: medium;
+    transition: 0.3s;
 }
 
 .item button:hover{
-    background-color: rgb(196, 224, 166);
+    background-color: rgb(243, 218, 77);
+    transition: 0.3s;
 }
 
 
@@ -78,6 +80,12 @@ section{
     width: 350px;
     max-width: 80%;
     position: relative;
+    height: fit-content;
+    
+}
+
+.modal-content p{
+    overflow: auto;
 }
 .modal-content form{
     display: flex;
