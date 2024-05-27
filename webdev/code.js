@@ -114,11 +114,11 @@ async function sell(){
 }
 
 async function submitItem(){
-    var name=document.getElementById("itm_name").value;
-    var desc=document.getElementById("itm_desc").value;
-    var price=document.getElementById("itm_prc").value;
-    var type=document.querySelector('input[name="choice"]:checked').value;
-    const imageFile=document.getElementById("itm_image").files[0];
+    var name=document.getElementById("itm_name").value
+    var desc=document.getElementById("itm_desc").value
+    var price=document.getElementById("itm_prc").value
+    var type=document.querySelector('input[name="choice"]:checked').value
+    const imageFile=document.getElementById("itm_image").files[0]
     
 
     const{data,error}=await connection.storage.from('item_image').upload(imageFile.name, imageFile)
@@ -252,6 +252,7 @@ async function viewitems(){
     clearItems()
     
     const{data, error}=await connection.from('item').select().eq('seller_id',userId)
+    
 
     data.forEach(item => {
         displayItem(item,false)
@@ -275,16 +276,51 @@ async function editItem(item){
     var newprice=document.getElementById('Nprice').value
     var newdesc=document.getElementById('Ndesc').value
 
-    const{data, error}=await connection.from('item').update({
-        name: newname,
-        price: newprice,
-        desc: newdesc
-    }).eq('item_id', item.item_id)
+    // const{data, error}=await connection.from('item').update({
+    //     name: newname,
+    //     price: newprice,
+    //     desc: newdesc
+    // }).eq('item_id', item.item_id)
 
-    if(error){
-        console.log('error: ', error)
+    
+    var REPLimgurl=item.imgurl
+    const pathStartIndex = REPLimgurl.indexOf(storageURL) + storageURL.length;
+    const olddataPath = REPLimgurl.substring(pathStartIndex)
+
+
+    const check=document.getElementById('IMAGE')
+    const newIMG=document.getElementById('IMAGE').files[0]
+
+    if (check && check.files.length > 0) {
+        const{data:newimgD,error:newimgE}=await connection.storage.from('item_image').upload(newIMG.name, newIMG)
+        const NEWimageURL=`${storageURL}${newimgD.path}`
+        const{data, error}=await connection.from('item').update({
+            name: newname,
+            price: newprice,
+            desc: newdesc,
+            imgurl: NEWimageURL
+        }).eq('item_id', item.item_id)
+
+        const{data:bucketdata, error:bucketerror } = await connection.storage.from('item_image').remove([olddataPath])
+    }else{
+        const{data, error}=await connection.from('item').update({
+            name: newname,
+            price: newprice,
+            desc: newdesc
+        }).eq('item_id', item.item_id)
     }
-    location.reload()
+
+
+    const modal = document.querySelector('.modal')
+    if (modal) {
+        modal.remove()
+        location.reload()
+    }
+
+    
+
+
+    
 }
 
 async function deleteItem(item){
@@ -321,7 +357,6 @@ function showModal(type, item){
         editForm.addEventListener('submit', (event) => {
             event.preventDefault()
             editItem(item)
-            modal.remove()
 
             
         })
@@ -346,12 +381,22 @@ function showModal(type, item){
         
                 const descLabel=document.createElement('label')
                 descLabel.textContent='New description: '
-                const descInput=document.createElement('input')
-                descInput.type='text'
+                const descInput=document.createElement('textarea')
                 descInput.id='Ndesc'
+                descInput.rows=5
+                descInput.cols=43
+                descInput.style.resize='none'
                 descInput.value=item.desc
                 descLabel.appendChild(descInput)
                 editForm.appendChild(descLabel)
+
+                const imgupdateLabel=document.createElement('label')
+                imgupdateLabel.textContent='Insert New Image (Optional)'
+                const imgupdate=document.createElement('input')
+                imgupdate.type='file'
+                imgupdate.id='IMAGE'
+                imgupdateLabel.appendChild(imgupdate)
+                editForm.appendChild(imgupdateLabel)
         
                 const submitButton=document.createElement('button')
                 submitButton.type='submit'
@@ -405,9 +450,6 @@ function showModal(type, item){
 
 
 
-
-
-
 async function displayItem(item, includeButton=true) {
     const pathname=window.location.pathname
 
@@ -449,6 +491,7 @@ function placeItem(item, itemDisplay, includeButton, beingsold){
     itemDivinner.classList.add('inner');
 
     const itemimg =document.createElement('img');
+    itemimg.id='imageid'
     itemimg.src = item.imgurl
 
     const name = document.createElement('p')
