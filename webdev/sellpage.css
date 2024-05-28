@@ -1,3 +1,12 @@
+header .sheader{
+        background-color: #003521;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;   
+}
 .container{
     background-color: rgb(132, 236, 197);
     width: 50%;

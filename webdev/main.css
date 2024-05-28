@@ -17,22 +17,25 @@
 }
 
 
-body{
+body {
     margin: 0;
     background-image: url(images/marketbackground.png);
     background-position: bottom center;
     background-attachment: fixed;
-    position:static;
+    position: static;
+    padding-top: 103px; 
 }
-header{
-    height: 145px;
-}
-.header{
+
+.header {
     background-color: #003521;
     display: flex;
     justify-content: space-between;
-    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
 }
+
 
 .logo{
     margin-left: 30px;

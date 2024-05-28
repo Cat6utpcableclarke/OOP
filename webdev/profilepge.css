@@ -1,29 +1,50 @@
-.pcontainer{
+.header {
+    background-color: #003521;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+
+.pcontainer {
+    margin-left: 25%; 
+    margin-right: 20%;
+    padding: 10px;
+    background-color: rgb(75, 90, 50);
+    border-radius: 30px;
+    font-family: cursive;
     text-align: center;
-    background-color:rgb(75, 90, 50);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10px;
-    margin-left: 20%;
-    margin-right: 20%;
-    border-radius: 30px;
-    font-family: cursive;
+}
+.sidebar{
+    position: fixed;
+    top: 103px;
+    height: 100vh;
+    background-color:rgb(75, 90, 50);
+    float: left;
 }
 .sidebar ul{
     margin-right: 30px;
 }
 
 .sidebar ul li{
-    display: inline-flex;
+    font-size: large;
+    font-family: cursive;
+    list-style: none;
+    width:fit-content;
     background-color: rgb(192, 192, 149);
-    padding: 10px;
     border-radius: 10px;
     color: rgb(51, 49, 49);
     transition: 0.3s;
     cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px;
 }
-
 .sidebar ul li:hover{
     background-color:rgb(216, 216, 192);
     transition: 0.3s;
@@ -38,6 +59,10 @@
     padding: 10px;
     width: fit-content;
     border-radius: 5px;
+}
+
+#itemsell {
+    margin-left: 310px; 
 }
 
 #edit-info p{

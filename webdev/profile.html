@@ -16,18 +16,18 @@
                <div class="name"><p>USC NIGHT MARKET</p></div>
                 <div class="profile"><p>PROFILE</p></div>
         </div><br>
+    </header>
+    <div class="sidebar">
         <div class="back"><button onclick="back()"><img src="images/backarrow.png"></button></div>
-    </header><br><br>
+        <ul>
+            <li id="profilevande" >View and Edit Profile</li>
+            <li id="changepass" >Change Pass</li>
+            <li id="viewsell" >View Items you're selling</li>
+        </ul>
+    </div>
 
-
-    <div class="pcontainer">
-        <div class="sidebar">
-            <ul>
-                <li id="profilevande" >View and Edit Profile</li>
-                <li id="changepass" >Change Pass</li>
-                <li id="viewsell" >View Items you're selling</li>
-            </ul>
-        </div>
+    <div class="pcontainer" id="pcontainer">
+        
 
 
         <div id="user-info">
@@ -77,7 +77,6 @@
    
     
     <br><br>
-    
 
 
     <script type="text/javascript" src="./code.js"></script>
@@ -92,7 +91,8 @@
 
         document.getElementById('profilevande').addEventListener('click', () => {
             removeActiveClass();
-            document.getElementById('profilevande').classList.add('active');   
+            document.getElementById('profilevande').classList.add('active');
+            document.getElementById('pcontainer').style.display='block'  
             document.getElementById('user-info').style.display='block'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('itemsell').style.display='none'
@@ -102,6 +102,7 @@
         document.getElementById('changepass').addEventListener('click', () => {
             removeActiveClass();
             document.getElementById('changepass').classList.add('active');
+            document.getElementById('pcontainer').style.display='block'
             document.getElementById('user-info').style.display='none'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('itemsell').style.display='none'
@@ -110,11 +111,13 @@
 
         document.getElementById('viewsell').addEventListener('click', () => {
             removeActiveClass();
+            
             document.getElementById('viewsell').classList.add('active');
             document.getElementById('user-info').style.display='none'
             document.getElementById('edit-info').style.display='none'
             document.getElementById('changepassinfo').style.display='none'
             document.getElementById('itemsell').style.display='block'
+            document.getElementById('pcontainer').style.display='none'
             viewitems()
         })
         

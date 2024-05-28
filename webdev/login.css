@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-header {
+.lhead{
     height: 145px;
     background-color: #003521;
     display: flex;
