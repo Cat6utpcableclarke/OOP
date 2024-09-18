@@ -1,5 +1,10 @@
 com\mycompany\employeeseries\version1\CommisionEmployee.class
-com\mycompany\employeeseries\EmployeeSeries.class
 com\mycompany\employeeseries\version1\BasedPlusCommissionEmployee.class
 com\mycompany\employeeseries\version1\PieceEmployee.class
+version2\BasedPlusCommissionEmployee.class
+version2\Employee.class
 com\mycompany\employeeseries\version1\HourlyEmployee.class
+com\mycompany\employeeseries\EmployeeSeries.class
+version2\HourlyEmployee.class
+version2\CommisionEmployee.class
+version2\PieceEmployee.class
