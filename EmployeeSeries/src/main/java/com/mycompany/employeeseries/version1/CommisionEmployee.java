@@ -9,11 +9,11 @@ package com.mycompany.employeeseries.version1;
  * @author light
  */
 public class CommisionEmployee {
-     private double totalSales;
+
+    private double totalSales;
     private String empName;
     private int empID;
-        
-    
+
     public CommisionEmployee() {
     }
 
@@ -22,13 +22,13 @@ public class CommisionEmployee {
         this.empName = empName;
         this.empID = empID;
     }
-    
-    public CommisionEmployee( String empName, int empID) {
+
+    public CommisionEmployee(String empName, int empID) {
         this.totalSales = 0;
         this.empName = empName;
         this.empID = empID;
     }
-    
+
     public double getTotalSales() {
         return totalSales;
     }
@@ -53,30 +53,27 @@ public class CommisionEmployee {
         this.empID = empID;
     }
 
-   
-    
-    public double computeSalary(){
-        
-        double salary = 0;
-        
-        if(totalSales < 10000){
-         salary = totalSales *0.05;
-        }else if(totalSales < 100000){
-            salary = totalSales *0.10;
-        }else if(totalSales < 1000000){
-            salary = totalSales *0.20;
-        }else if(totalSales > 1000000){
-            salary = totalSales *0.30;
+    public double computeSalary() {
+
+        double salary =0.0;
+       
+        if (totalSales < 10000) {
+            salary = totalSales * 0.05;
+        } else if (totalSales < 100000) {
+            salary = totalSales * 0.10;
+        } else if (totalSales < 1000000) {
+            salary = totalSales * 0.20;
+        } else if (totalSales > 1000000) {
+            salary = totalSales * 0.30;
         }
         return salary;
     }
-    
-    public void displayCommisionEmployee(){
-         System.out.printf("PIECE EMPOYEE\n",empID);
-        System.out.printf("Employee ID : %d\n",empID);
-        System.out.printf("Employee Name : %s\n",empName);
-        System.out.printf("Employee Sales : %f\n",totalSales);
-        System.out.printf("Employee Salary : %f\n",this.computeSalary());
+
+    public void displayCommisionEmployee() {
+        System.out.printf("Employee ID : %d\n", empID);
+        System.out.printf("Employee Name : %s\n", empName);
+        System.out.printf("Employee Sales : %.2f\n", totalSales);
+        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
     }
 
     @Override

@@ -9,14 +9,13 @@ package com.mycompany.employeeseries.version1;
  * @author light
  */
 public class PieceEmployee {
-     private int piecesFinished;
+
+    private int piecesFinished;
     private double ratePerPiece;
     private String empName;
     private int empID;
 
-    
-    
-     public PieceEmployee() {
+    public PieceEmployee() {
     }
 
     public PieceEmployee(int piecesFinished, double ratePerPiece, String empName, int empID) {
@@ -25,13 +24,14 @@ public class PieceEmployee {
         this.empName = empName;
         this.empID = empID;
     }
-    
-     public PieceEmployee( String empName, int empID) {
+
+    public PieceEmployee(String empName, int empID) {
         this.piecesFinished = 0;
         this.ratePerPiece = 0;
         this.empName = empName;
         this.empID = empID;
     }
+
     public int getPiecesFinished() {
         return piecesFinished;
     }
@@ -63,22 +63,24 @@ public class PieceEmployee {
     public void setEmpID(int empID) {
         this.empID = empID;
     }
-   
-    public double computeSalary (){
-        
-        int bonus = piecesFinished/100;
-        double salary = ((piecesFinished+bonus) * ratePerPiece) +(bonus * (10*ratePerPiece));
-        
-        
+
+    public double computeSalary() {
+
+        int bonus = piecesFinished / 100;
+        double salary = ((piecesFinished + bonus) * ratePerPiece) + (bonus * (10 * ratePerPiece));
+
         return salary;
     }
-    public void displayPieceEmployee(){
-        System.out.printf("PIECE EMPLOYEE\n");
-        System.out.printf("Employee ID : %d\n",empID);
-        System.out.printf("Employee Name : %s\n",empName);
-        System.out.printf("Employee rate : %d\n",piecesFinished);
-        System.out.printf("Employee salary : %.2f\n",this.computeSalary());
-    };
+
+    public void displayPieceEmployee() {
+
+        System.out.printf("Employee ID : %d\n", empID);
+        System.out.printf("Employee Name : %s\n", empName);
+        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
+        System.out.printf("Pieces Finished : %d\n", piecesFinished);
+        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+    }
+;
 }
 
 //PieceWorkerEmployee

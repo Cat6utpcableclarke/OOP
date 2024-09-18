@@ -9,24 +9,29 @@ package com.mycompany.employeeseries.version1;
  * @author light
  */
 public class HourlyEmployee {
-    
-     private float totalHoursWorked;
+
+    private float totalHoursWorked;
     private double ratePerHour;
     private String empName;
-    private int empID ;
-
+    private int empID;
 
     public HourlyEmployee() {
     }
-    
-     public HourlyEmployee(float totalHoursWorked, double ratePerHour, String empName, int empID) {
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String empName, int empID) {
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
         this.empName = empName;
         this.empID = empID;
     }
-     
-     
+
+    public HourlyEmployee(String empName, int empID) {
+        this.totalHoursWorked = 0;
+        this.ratePerHour = 0;
+        this.empName = empName;
+        this.empID = empID;
+    }
+
     public float getTotalHoursWorked() {
         return totalHoursWorked;
     }
@@ -59,24 +64,24 @@ public class HourlyEmployee {
         this.empID = empID;
     }
 
-   
-    
-    public double computeSalary(){
-    
-       double salary = (totalHoursWorked >40)?(totalHoursWorked * ratePerHour)*1.50 :totalHoursWorked * ratePerHour;
-       
+    public double computeSalary() {
+
+        double salary = (totalHoursWorked > 40) ? (totalHoursWorked * ratePerHour) * 1.50 : totalHoursWorked * ratePerHour;
 
         return salary;
-    };
+    }
+
+    ;
     
-    public void displayHourlyEmployee(){
-    
-        System.out.printf("Employee ID : %d\n",empID);
-        System.out.printf("Employee Name : %s\n",empName);
-        System.out.printf("Employee rate : %f\n",ratePerHour);
-        System.out.printf("Employee hours : %f\n",totalHoursWorked);
-        System.out.printf("Employee salary : %.2f\n",this.computeSalary());
-    };
+    public void displayHourlyEmployee() {
+        System.out.printf("Employee ID : %d\n", empID);
+        System.out.printf("Employee Name : %s\n", empName);
+        System.out.printf("Employee rate : %.2f\n", ratePerHour);
+        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
+        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+    }
+
+    ;
     
     
     
