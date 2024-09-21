@@ -3,7 +3,8 @@
  */
 package com.mycompany.employeeseries;
 
-import com.mycompany.employeeseries.version1.*;
+//import com.mycompany.employeeseries.version1.*;
+import version2.*;
 
 /**
  *
@@ -12,6 +13,7 @@ import com.mycompany.employeeseries.version1.*;
 public class EmployeeSeries {
 
     public static void main(String[] args) {
+        
         HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", 2310);
         HourlyEmployee h2 = new HourlyEmployee("Clarke", 2310);
         HourlyEmployee h3 = new HourlyEmployee();
@@ -29,7 +31,6 @@ public class EmployeeSeries {
         CommisionEmployee c1 = new CommisionEmployee();
         CommisionEmployee c2 = new CommisionEmployee("Pablo", 3439);
         CommisionEmployee c3 = new CommisionEmployee(12300, "Pablo", 3439);
-
         c1.displayCommisionEmployee();
         System.out.println("----------");
         c2.displayCommisionEmployee();
