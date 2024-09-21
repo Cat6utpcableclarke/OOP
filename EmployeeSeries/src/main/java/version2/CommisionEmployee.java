@@ -2,32 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.employeeseries.version1;
+package version2;
 
 /**
  *
  * @author light
  */
-public class BasedPlusCommissionEmployee {
+public class CommisionEmployee {
 
     private double totalSales;
-    private double BaseSalary;
     private String empName;
     private int empID;
 
-    public BasedPlusCommissionEmployee() {
+    public CommisionEmployee() {
     }
 
-    public BasedPlusCommissionEmployee(double totalSales, double BaseSalary, String empName, int empID) {
+    public CommisionEmployee(double totalSales, String empName, int empID) {
         this.totalSales = totalSales;
-        this.BaseSalary = BaseSalary;
         this.empName = empName;
         this.empID = empID;
     }
 
-    public BasedPlusCommissionEmployee(String empName, int empID) {
+    public CommisionEmployee(String empName, int empID) {
         this.totalSales = 0;
-        this.BaseSalary = 0;
         this.empName = empName;
         this.empID = empID;
     }
@@ -38,14 +35,6 @@ public class BasedPlusCommissionEmployee {
 
     public void setTotalSales(double totalSales) {
         this.totalSales = totalSales;
-    }
-
-    public double getBaseSalary() {
-        return BaseSalary;
-    }
-
-    public void setBaseSalary(double BaseSalary) {
-        this.BaseSalary = BaseSalary;
     }
 
     public String getEmpName() {
@@ -67,31 +56,43 @@ public class BasedPlusCommissionEmployee {
     public double computeSalary() {
 
         double salary =0.0;
-
+       
         if (totalSales < 10000) {
-            salary = (totalSales * 0.05) + BaseSalary;
-        } else if ( totalSales >= 10000 && totalSales < 100000) {
-            salary = totalSales+(totalSales * 0.10) + BaseSalary;
+            salary = totalSales * 0.05;
+        } else if (totalSales < 100000) {
+            salary = totalSales * 0.10;
         } else if (totalSales < 1000000) {
-            salary = totalSales+(totalSales * 0.20) + BaseSalary;
+            salary = totalSales * 0.20;
         } else if (totalSales > 1000000) {
-            salary = totalSales+(totalSales * 0.30) + BaseSalary;
+            salary = totalSales * 0.30;
         }
         return salary;
     }
 
-    public void displayBasedPlusCommissionEmployee() {
+    public void displayCommisionEmployee() {
         System.out.printf("Employee ID : %d\n", empID);
         System.out.printf("Employee Name : %s\n", empName);
         System.out.printf("Employee Sales : %.2f\n", totalSales);
-        System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
         System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
-
     }
 
     @Override
     public String toString() {
-        return "BasedPlusCommissionEmployee{" + "totalSales=" + totalSales + ", BaseSalary=" + BaseSalary + ", empName=" + empName + ", empID=" + empID + '}';
+        return "CommisionEmployee{" + "totalSales=" + totalSales + ", empName=" + empName + ", empID=" + empID + '}';
     }
-
 }
+
+//CommissionEmployee
+//-totalSales:double
+//-empName:String
+//-empID:int
+//+computeSalary():double
+// -> less than  10,000 - 5% sales
+// -> less than 100,000 but greater than or eal to 10k - 10 % sales
+// -> less than 1M - 20% sales
+// -> above and equal to 1 M - 30% sales
+//+displayHourlyEmployee():void
+// -> Employee ID: xxx
+//    Employee Name: xxx
+//+toString():String
+// -> similar with display
