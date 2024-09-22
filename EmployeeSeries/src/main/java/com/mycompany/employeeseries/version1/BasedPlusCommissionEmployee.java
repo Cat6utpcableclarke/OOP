@@ -66,18 +66,8 @@ public class BasedPlusCommissionEmployee {
 
     public double computeSalary() {
 
-        double salary =0.0;
-
-        if (totalSales < 10000) {
-            salary = (totalSales * 0.05) + BaseSalary;
-        } else if ( totalSales >= 10000 && totalSales < 100000) {
-            salary = totalSales+(totalSales * 0.10) + BaseSalary;
-        } else if (totalSales < 1000000) {
-            salary = totalSales+(totalSales * 0.20) + BaseSalary;
-        } else if (totalSales > 1000000) {
-            salary = totalSales+(totalSales * 0.30) + BaseSalary;
-        }
-        return salary;
+        double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
+        return (totalSales * rate) +BaseSalary;
     }
 
     public void displayBasedPlusCommissionEmployee() {

@@ -55,18 +55,8 @@ public class CommisionEmployee {
 
     public double computeSalary() {
 
-        double salary =0.0;
-       
-        if (totalSales < 10000) {
-            salary = totalSales * 0.05;
-        } else if (totalSales < 100000) {
-            salary = totalSales * 0.10;
-        } else if (totalSales < 1000000) {
-            salary = totalSales * 0.20;
-        } else if (totalSales > 1000000) {
-            salary = totalSales * 0.30;
-        }
-        return salary;
+       double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
+        return totalSales * rate;
     }
 
     public void displayCommisionEmployee() {

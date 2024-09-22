@@ -47,9 +47,8 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
     @Override
     public double computeSalary() {
 
-        double salary =(totalSales < 10000)?(totalSales * 0.05) + BaseSalary:(totalSales >= 10000 && totalSales < 100000)? (totalSales * 0.10) + BaseSalary:
-                       (totalSales < 1000000)? (totalSales * 0.20) + BaseSalary: (totalSales * 0.30) + BaseSalary;
-        return salary;
+       double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
+        return (totalSales *rate)+BaseSalary;
     }
 
     public void displayBasedPlusCommissionEmployee() {
