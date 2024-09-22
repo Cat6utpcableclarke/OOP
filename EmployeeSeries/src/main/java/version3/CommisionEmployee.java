@@ -14,17 +14,7 @@ public class CommisionEmployee extends Employee {
 
     protected double totalSales;
 
-    public CommisionEmployee() {
-    }
-
-    public CommisionEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
-    }
-
-    public CommisionEmployee(double totalSales, String Name, int EmpID) {
-        super(Name, EmpID);
-        this.totalSales = totalSales;
-    }
+    
 
     public double getTotalSales() {
         return totalSales;

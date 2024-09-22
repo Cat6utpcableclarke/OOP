@@ -16,27 +16,7 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
 //    private String empName;
 //    private int empID;
-    public BasedPlusCommissionEmployee() {
-    }
-
-    public BasedPlusCommissionEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
-        this.BaseSalary = 0;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary) {
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary, String Name, int EmpID) {
-        super(Name, EmpID);
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String Name, int EmpID) {
-        super(totalSales, Name, EmpID);
-        this.BaseSalary = BaseSalary;
-    }
+   
 
     public double getBaseSalary() {
         return BaseSalary;

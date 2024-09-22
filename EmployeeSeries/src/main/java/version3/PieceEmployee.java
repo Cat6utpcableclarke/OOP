@@ -15,25 +15,7 @@ public class PieceEmployee extends Employee {
     private int piecesFinished;
     private double ratePerPiece;
 
-    public PieceEmployee() {
-    }
-
-    public PieceEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
-    }
-
-    public PieceEmployee(int piecesFinished, double ratePerPiece) {
-        super();
-        this.piecesFinished = piecesFinished;
-        this.ratePerPiece = ratePerPiece;
-    }
-
-    public PieceEmployee(int piecesFinished, double ratePerPiece, String Name, int EmpID) {
-        super(Name, EmpID);
-        this.piecesFinished = piecesFinished;
-        this.ratePerPiece = ratePerPiece;
-    }
-
+   
     public int getPiecesFinished() {
         return piecesFinished;
     }

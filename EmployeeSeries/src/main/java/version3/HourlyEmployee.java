@@ -15,49 +15,7 @@ public class HourlyEmployee extends Employee{
     private double ratePerHour;
 
     
-    
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String Name, int EmpID) {
-        super(Name, EmpID);
-        this.totalHoursWorked = totalHoursWorked;
-        this.ratePerHour = ratePerHour;
-    }
-
-    
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour) {
-        this.totalHoursWorked = totalHoursWorked;
-        this.ratePerHour = ratePerHour;
-    }
-
-    public HourlyEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
-    }
-    
-    public HourlyEmployee() {
-        this.totalHoursWorked = 0;
-        this.ratePerHour = 0;
-    }
-    
-    
-    
-    @Override
-    public String getName() {
-        return Name;
-    }
-
-    @Override
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-    @Override
-    public int getEmpID() {
-        return EmpID;
-    }
-    @Override
-    public void setEmpID(int EmpID) {
-        this.EmpID = EmpID;
-    }
    
-
     public float getTotalHoursWorked() {
         return totalHoursWorked;
     }
