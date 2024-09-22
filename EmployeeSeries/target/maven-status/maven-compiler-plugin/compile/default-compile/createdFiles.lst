@@ -3,6 +3,7 @@ com\mycompany\employeeseries\version1\BasedPlusCommissionEmployee.class
 com\mycompany\employeeseries\version1\PieceEmployee.class
 version2\BasedPlusCommissionEmployee.class
 version3\HourlyEmployee.class
+version3\Name.class
 com\mycompany\employeeseries\version1\HourlyEmployee.class
 version3\Employee.class
 com\mycompany\employeeseries\EmployeeSeries.class

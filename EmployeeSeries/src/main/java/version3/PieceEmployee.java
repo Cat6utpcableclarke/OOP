@@ -4,8 +4,6 @@
  */
 package version3;
 
-
-
 /**
  *
  * @author light
@@ -15,7 +13,29 @@ public class PieceEmployee extends Employee {
     private int piecesFinished;
     private double ratePerPiece;
 
-   
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+
+    public PieceEmployee() {
+        super();
+    }
+
+    public PieceEmployee(String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.piecesFinished = 0;
+        this.ratePerPiece = 0;
+
+    }
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece, int EmpID) {
+        super(EmpID);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+
     public int getPiecesFinished() {
         return piecesFinished;
     }
@@ -41,8 +61,8 @@ public class PieceEmployee extends Employee {
     }
 
     public void displayPieceEmployee() {
-        System.out.printf("Employee Name: %s\n",Name);
-        System.out.printf("Employe ID: %d\n", EmpID);
+        System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
+        System.out.printf("Employee ID : %d\n", EmpID);
         System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
         System.out.printf("Pieces Finished : %d\n", piecesFinished);
         System.out.printf("Employee salary : %.2f\n", this.computeSalary());

@@ -12,23 +12,32 @@ package version3;
  */
 public class Employee {
     
-    String Name;
+    Name empName;
     int EmpID;
 
-    public Employee() {
-    }
-
-    public Employee(String Name, int EmpID) {
-        this.Name = Name;
+    public Employee(String fName,String mName,String lname ,int EmpID) {
+        this.empName = new Name(fName,mName,lname);
         this.EmpID = EmpID;
     }
 
-    public String getName() {
-        return Name;
+    public Employee(int EmpID) {
+        this.empName = new Name("xxxx","xxxx","xxxx");
+        this.EmpID = EmpID;
+    }
+    
+     public Employee() {
+        this.empName = new Name("xxxx","xxxx","xxxx");
+        this.EmpID = 0;
+    }
+ 
+    
+
+    public Name getEmpName() {
+        return empName;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setEmpName(Name empName) {
+        this.empName = empName;
     }
 
     public int getEmpID() {
@@ -37,12 +46,5 @@ public class Employee {
 
     public void setEmpID(int EmpID) {
         this.EmpID = EmpID;
-    }
-    
-    
-
-   
-    
-    
-    
+    }  
 }

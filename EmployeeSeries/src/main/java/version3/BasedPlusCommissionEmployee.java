@@ -16,8 +16,44 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
 //    private String empName;
 //    private int empID;
-   
 
+    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String fName, String mName, String lname, int EmpID) {
+        super(totalSales, fName, mName, lname, EmpID);
+        this.BaseSalary = BaseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, int EmpID) {
+        super(totalSales, EmpID);
+        this.BaseSalary = BaseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales) {
+        super(totalSales);
+        this.BaseSalary = BaseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double BaseSalary, String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.BaseSalary = BaseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double BaseSalary) {
+        this.BaseSalary = BaseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.BaseSalary = 0;
+    }
+    
+    
+
+    public BasedPlusCommissionEmployee() {
+        super();
+        this.BaseSalary = 0;
+    }
+   
+    
     public double getBaseSalary() {
         return BaseSalary;
     }
@@ -26,20 +62,19 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
         this.BaseSalary = BaseSalary;
     }
 
-    @Override
-    public double computeSalary() {
-
-        double salary =(totalSales < 10000)?(totalSales * 0.05) + BaseSalary:(totalSales >= 10000 && totalSales < 100000)? (totalSales * 0.10) + BaseSalary:
-                       (totalSales < 1000000)? (totalSales * 0.20) + BaseSalary: (totalSales * 0.30) + BaseSalary;
-        return salary;
-    }
+//    @Override
+//    public double computeSalary() {
+//
+//        double salary =(totalSales < 10000)?(totalSales * 0.05) + BaseSalary:(totalSales >= 10000 && totalSales < 100000)? (totalSales * 0.10) + BaseSalary:
+//                       (totalSales < 1000000)? (totalSales * 0.20) + BaseSalary: (totalSales * 0.30) + BaseSalary;
+//        return salary;
+//    }
 
     public void displayBasedPlusCommissionEmployee() {
-         System.out.printf("Employee Name : %s\n", Name);
          System.out.printf("Employee ID : %d\n", EmpID);
         System.out.printf("Employee Sales : %.2f\n", totalSales);
         System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
-        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
+        System.out.printf("Employee Salary : %.2f\n", super.computeSalary()+BaseSalary);
 
     }
 

@@ -9,11 +9,45 @@ package version3;
  *
  * @author light
  */
+
+
 public class HourlyEmployee extends Employee{
 
     private float totalHoursWorked;
     private double ratePerHour;
 
+    public HourlyEmployee(String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.totalHoursWorked = 0;
+        this.ratePerHour = 0;
+    }
+
+    public HourlyEmployee() {
+        super();
+    }
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour) {
+        this.totalHoursWorked = totalHoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName, String mName, String lname, int EmpID) {
+        super(fName, mName, lname, EmpID);
+        this.totalHoursWorked = totalHoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, int EmpID) {
+        super(EmpID);
+        this.totalHoursWorked = totalHoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
+    
+     public HourlyEmployee(int EmpID) {
+        super(EmpID);
+        this.totalHoursWorked = 0;
+        this.ratePerHour = 0;
+    }
     
    
     public float getTotalHoursWorked() {
@@ -44,7 +78,7 @@ public class HourlyEmployee extends Employee{
     ;
     
     public void displayHourlyEmployee() {
-        System.out.printf("Employee Name : %s\n",Name);
+        System.out.printf("Employee Name: %s , %s, %s\n",empName.fname,empName.mname,empName.lname);
         System.out.printf("Employee ID : %d\n",EmpID);
         System.out.printf("Employee rate : %.2f\n", ratePerHour);
         System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
