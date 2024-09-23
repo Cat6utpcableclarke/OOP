@@ -60,10 +60,11 @@ public class CommisionEmployee {
     }
 
     public void displayCommisionEmployee() {
-        System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Employee Name : %s\n", empName);
-        System.out.printf("Employee Sales : %.2f\n", totalSales);
-        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Employee Name : %s\n", empName);
+//        System.out.printf("Employee Sales : %.2f\n", totalSales);
+//        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
+          System.out.println(toString() + computeSalary());
     }
 
     @Override

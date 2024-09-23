@@ -11,7 +11,7 @@ package com.mycompany.employeeseries.version1;
 public class BasedPlusCommissionEmployee {
 
     private double totalSales;
-    private double BaseSalary;
+    private double baseSalary;
     private String empName;
     private int empID;
 
@@ -20,14 +20,14 @@ public class BasedPlusCommissionEmployee {
 
     public BasedPlusCommissionEmployee(double totalSales, double BaseSalary, String empName, int empID) {
         this.totalSales = totalSales;
-        this.BaseSalary = BaseSalary;
+        this.baseSalary = BaseSalary;
         this.empName = empName;
         this.empID = empID;
     }
 
     public BasedPlusCommissionEmployee(String empName, int empID) {
         this.totalSales = 0;
-        this.BaseSalary = 0;
+        this.baseSalary = 0;
         this.empName = empName;
         this.empID = empID;
     }
@@ -41,11 +41,11 @@ public class BasedPlusCommissionEmployee {
     }
 
     public double getBaseSalary() {
-        return BaseSalary;
+        return baseSalary;
     }
 
     public void setBaseSalary(double BaseSalary) {
-        this.BaseSalary = BaseSalary;
+        this.baseSalary = BaseSalary;
     }
 
     public String getEmpName() {
@@ -67,21 +67,22 @@ public class BasedPlusCommissionEmployee {
     public double computeSalary() {
 
         double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
-        return (totalSales * rate) +BaseSalary;
+        return (totalSales * rate) +baseSalary;
     }
 
     public void displayBasedPlusCommissionEmployee() {
-        System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Employee Name : %s\n", empName);
-        System.out.printf("Employee Sales : %.2f\n", totalSales);
-        System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
-        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Employee Name : %s\n", empName);
+//        System.out.printf("Employee Sales : %.2f\n", totalSales);
+//        System.out.printf("Employee BaseSalary : %.2f\n", baseSalary);
+//        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
+          System.out.println(toString() + computeSalary());
 
     }
 
     @Override
     public String toString() {
-        return "BasedPlusCommissionEmployee{" + "totalSales=" + totalSales + ", BaseSalary=" + BaseSalary + ", empName=" + empName + ", empID=" + empID + '}';
+        return "BasedPlusCommissionEmployee{" + "totalSales=" + totalSales + ", BaseSalary=" + baseSalary + ", empName=" + empName + ", empID=" + empID + '}';
     }
 
 }

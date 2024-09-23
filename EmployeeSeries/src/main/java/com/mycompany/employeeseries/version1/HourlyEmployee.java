@@ -14,7 +14,7 @@ public class HourlyEmployee {
     private double ratePerHour;
     private String empName;
     private int empID;
-
+    
     public HourlyEmployee() {
     }
 
@@ -26,8 +26,6 @@ public class HourlyEmployee {
     }
 
     public HourlyEmployee(String empName, int empID) {
-        this.totalHoursWorked = 0;
-        this.ratePerHour = 0;
         this.empName = empName;
         this.empID = empID;
     }
@@ -66,7 +64,8 @@ public class HourlyEmployee {
 
     public double computeSalary() {
 
-        double salary = (totalHoursWorked > 40) ? (totalHoursWorked * ratePerHour) * 1.50 : totalHoursWorked * ratePerHour;
+        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + ((this.ratePerHour + this.ratePerHour / 2) * (this.totalHoursWorked - 40)) 
+                : totalHoursWorked * ratePerHour;
 
         return salary;
     }
@@ -74,11 +73,12 @@ public class HourlyEmployee {
     ;
     
     public void displayHourlyEmployee() {
-        System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Employee Name : %s\n", empName);
-        System.out.printf("Employee rate : %.2f\n", ratePerHour);
-        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Employee Name : %s\n", empName);
+//        System.out.printf("Employee rate : %.2f\n", ratePerHour);
+//        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+           System.out.println(toString() + computeSalary());
     }
 
     ;
@@ -104,3 +104,12 @@ public class HourlyEmployee {
 //    Employee Name: xxx
 //+toString():String
 // -> similar with display
+
+
+//private double computeSalary(){
+//        if(this.totalHoursWorked > 40){
+//            return this.ratePerHour * 40 + ((this.ratePerHour + this.ratePerHour / 2) * (this.totalHoursWorked - 40)); 
+//        }else{
+//            return this.totalHoursWorked * this.ratePerHour;
+//        }
+//    }

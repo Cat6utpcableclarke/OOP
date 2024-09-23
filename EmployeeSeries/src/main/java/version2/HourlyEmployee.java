@@ -8,20 +8,17 @@ package version2;
  *
  * @author light
  */
-public class HourlyEmployee extends Employee{
+public class HourlyEmployee extends Employee {
 
     private float totalHoursWorked;
     private double ratePerHour;
 
-    
-    
     public HourlyEmployee(float totalHoursWorked, double ratePerHour, String Name, int EmpID) {
         super(Name, EmpID);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
 
-    
     public HourlyEmployee(float totalHoursWorked, double ratePerHour) {
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
@@ -30,14 +27,14 @@ public class HourlyEmployee extends Employee{
     public HourlyEmployee(String Name, int EmpID) {
         super(Name, EmpID);
     }
-    
+
     public HourlyEmployee() {
-        this.totalHoursWorked = 0;
-        this.ratePerHour = 0;
     }
     
-    
-    
+    public HourlyEmployee(String Name) {
+        super(Name);
+    }
+
     @Override
     public String getName() {
         return Name;
@@ -47,15 +44,16 @@ public class HourlyEmployee extends Employee{
     public void setName(String Name) {
         this.Name = Name;
     }
+
     @Override
     public int getEmpID() {
         return EmpID;
     }
+
     @Override
     public void setEmpID(int EmpID) {
         this.EmpID = EmpID;
     }
-   
 
     public float getTotalHoursWorked() {
         return totalHoursWorked;
@@ -73,11 +71,10 @@ public class HourlyEmployee extends Employee{
         this.ratePerHour = ratePerHour;
     }
 
-   
-    
     public double computeSalary() {
 
-        double salary = (totalHoursWorked > 40) ? (totalHoursWorked * ratePerHour) * 1.50 : totalHoursWorked * ratePerHour;
+        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + ((this.ratePerHour + this.ratePerHour / 2) * (this.totalHoursWorked - 40)) 
+                : totalHoursWorked * ratePerHour;
 
         return salary;
     }
@@ -85,11 +82,12 @@ public class HourlyEmployee extends Employee{
     ;
     
     public void displayHourlyEmployee() {
-        System.out.printf("Employee Name : %s\n",Name);
-        System.out.printf("Employee ID : %d\n",EmpID);
-        System.out.printf("Employee rate : %.2f\n", ratePerHour);
-        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee Name : %s\n", Name);
+//        System.out.printf("Employee ID : %d\n", EmpID);
+//        System.out.printf("Employee rate : %.2f\n", ratePerHour);
+//        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+          System.out.println(toString() + computeSalary() +super.Name +super.EmpID);
     }
 
     ;

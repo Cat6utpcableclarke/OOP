@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.mycompany.project;
 
 /**
@@ -9,7 +8,7 @@ package com.mycompany.project;
  * @author User
  */
 public class Project {
-    
+
     public static void main(String[] args) {
 //        Account a1 = new Account("Neto",23103439);
 //        
@@ -23,19 +22,18 @@ public class Project {
 //        a1.withdraw(200);
 //        a1.Display();
 
+        Vehicle car = new Vehicle(100, 0, "black", "vios", "toyota", "GAE6969", false);
 
-       Vehicle car = new Vehicle (100,0,"black","vios","toyota","GAE6969", false);
-       
         System.out.println(car);
-       
+
         car.display();
-        
+
         car.accelerate();
-        while(car.getCurrspeed()<car.getTopspeed()){
-         car.accelerate();
+        while (car.getCurrspeed() < car.getTopspeed()) {
+            car.accelerate();
         }
-         System.out.println(car);
-         car.display();
-        
+        System.out.println(car);
+        car.display();
+
     }
 }

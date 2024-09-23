@@ -10,8 +10,8 @@ package version2;
  */
 public class Employee {
     
-    String Name;
-    int EmpID;
+    protected String Name;
+    protected int EmpID;
 
     public Employee() {
     }
@@ -21,6 +21,10 @@ public class Employee {
         this.EmpID = EmpID;
     }
 
+    public Employee(String Name) {
+        this.Name = Name;
+    }
+    
     public String getName() {
         return Name;
     }
@@ -35,6 +39,11 @@ public class Employee {
 
     public void setEmpID(int EmpID) {
         this.EmpID = EmpID;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "Name=" + Name + ", EmpID=" + EmpID + '}';
     }
     
     

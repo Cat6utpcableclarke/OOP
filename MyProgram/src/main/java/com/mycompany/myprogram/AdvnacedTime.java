@@ -1,24 +1,33 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.myprogram;
 
-public class MyTime {
-    int hours;
-    int minutes;
-    int seconds;
-    private String meridian;
+/**
+ *
+ * @author User
+ */
+public class AdvnacedTime {
+
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private String Meridian;
 
     public String getMeridian() {
-        return meridian;
+        return Meridian;
     }
 
-    public void setMeridian(String meridian) {
-        this.meridian = meridian;
+    private void setMeridian(String Meridian) {
+        this.Meridian = Meridian;
     }
-    
-    public MyTime(int hrs, int min, int sec, String meridian) {
+
+    public void AdvancedTime(int hrs, int min, int sec, String Meridian) {
         setHours(hrs);
         setMinutes(min);
         setSeconds(sec);
-        setMeridian(meridian);
+        setMeridian(Meridian);
     }
 
     public void setHours(int hours) {
@@ -33,7 +42,7 @@ public class MyTime {
         return minutes;
     }
 
-    public void setMinutes(int minutes) {
+    private void setMinutes(int minutes) {
         this.minutes = (minutes < 60 && minutes >= 0) ? minutes : 0;
     }
 
@@ -47,80 +56,39 @@ public class MyTime {
 
     public void tickBySecond() {
         if (seconds < 59) {
-            seconds++;
+            seconds += 1;
         } else {
             seconds = 0;
             tickByMinute();
-        }  
+        }
     }
-   
+
     public void tickByMinute() {
         if (minutes < 59) {
-            minutes++;
+            minutes += 1;
         } else {
             minutes = 0;
             tickByHour();
-        }  
+        }
+
     }
-      
+
     public void tickByHour() {
         if (hours < 12) {
-            hours++;
+            hours += 1;
         } else {
             hours = 1;
             tickByMeridian();
-        }   
+        }
     }
-    
+
     public void tickByMeridian() {
-        meridian = ("AM".equals(meridian)) ? "PM" : "AM";
+        Meridian = ("AM".equals(Meridian)) ? "PM" : Meridian;
     }
 
     @Override
     public String toString() {
-        return String.format("%02d:%02d:%02d %s", hours, minutes, seconds, meridian);
-    }
-    
-    public void advanceTickBySecond(int length) {
- 
-        int totalSeconds = seconds + length;
-        minutes += totalSeconds / 60;
-        seconds = totalSeconds % 60;   
-        adjustTime();                  
-    }
-    
-    public void advanceTickByMinute(int length) {
-        // Advance minutes directly
-        int totalMinutes = minutes + length;
-        hours += totalMinutes / 60;     
-        minutes = totalMinutes % 60;    
-        adjustTime();                    
-    }
-    
-    public void advanceTickByHour(int length) {
-        
-        hours += length;
-        if (hours > 12) {
-            hours = (hours % 12 == 0) ? 12 : hours % 12; 
-            tickByMeridian(); 
-        }
-    }
-
-    private void adjustTime() {
-        
-        if (minutes >= 60) {
-            hours += minutes / 60;
-            minutes %= 60;
-            adjustHour();
-        }
-    }
-
-    private void adjustHour() {
-       
-        if (hours > 12) {
-            hours = (hours % 12 == 0) ? 12 : hours % 12;
-            tickByMeridian();
-        }
+        return String.format("%02d:%02d:%02d %s", hours, minutes, seconds, Meridian);
     }
 
     @Override
@@ -152,4 +120,5 @@ public class MyTime {
         }
         return this.seconds == other.seconds;
     }
+
 }

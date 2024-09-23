@@ -10,9 +10,9 @@ package version3;
  */
 public class Name {
     
-    String fname;
-    String mname;
-    String lname;
+   protected String fname;
+   protected String mname;
+   protected String lname;
 
     public Name() {
     }

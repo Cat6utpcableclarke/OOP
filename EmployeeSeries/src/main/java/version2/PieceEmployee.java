@@ -32,6 +32,12 @@ public class PieceEmployee extends Employee {
         this.ratePerPiece = ratePerPiece;
     }
 
+    public PieceEmployee(String Name) {
+        super(Name);
+    }
+    
+    
+    
     public int getPiecesFinished() {
         return piecesFinished;
     }
@@ -57,13 +63,23 @@ public class PieceEmployee extends Employee {
     }
 
     public void displayPieceEmployee() {
-        System.out.printf("Employee Name: %s\n",Name);
-        System.out.printf("Employe ID: %d\n", EmpID);
-        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
-        System.out.printf("Pieces Finished : %d\n", piecesFinished);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee Name: %s\n",Name);
+//        System.out.printf("Employe ID: %d\n", EmpID);
+//        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
+//        System.out.printf("Pieces Finished : %d\n", piecesFinished);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+        System.out.println(toString() + computeSalary() + super.Name +super.EmpID);
+
     }
+    
+    
 ;
+
+    @Override
+    public String toString() {
+        return "PieceEmployee{" + "piecesFinished=" + piecesFinished + ", ratePerPiece=" + ratePerPiece + '}';
+    }
+
 }
 
 //PieceWorkerEmployee

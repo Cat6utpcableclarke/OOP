@@ -74,13 +74,22 @@ public class PieceEmployee {
 
     public void displayPieceEmployee() {
 
-        System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Employee Name : %s\n", empName);
-        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
-        System.out.printf("Pieces Finished : %d\n", piecesFinished);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Employee Name : %s\n", empName);
+//        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
+//        System.out.printf("Pieces Finished : %d\n", piecesFinished);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+          System.out.println(toString() + computeSalary());
     }
+    
+    
 ;
+
+    @Override
+    public String toString() {
+        return "PieceEmployee{" + "piecesFinished=" + piecesFinished + ", ratePerPiece=" + ratePerPiece + ", empName=" + empName + ", empID=" + empID + '}';
+    }
+
 }
 
 //PieceWorkerEmployee

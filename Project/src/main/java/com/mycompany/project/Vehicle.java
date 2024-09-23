@@ -9,7 +9,7 @@ package com.mycompany.project;
  * @author User
  */
 public class Vehicle {
-    
+
     private int topspeed;
     private int currspeed;
     private String color;
@@ -27,8 +27,6 @@ public class Vehicle {
         this.plateNumber = plateNumber;
         this.disabled = disabled;
     }
-
-   
 
     public int getTopspeed() {
         return topspeed;
@@ -85,43 +83,41 @@ public class Vehicle {
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
     }
-    
-    public boolean accelerate(){
-        
-      if(currspeed>=topspeed && disabled) { 
-          return false;
-      }
-      currspeed+=10; 
-      disabled = (currspeed > topspeed);
-      
-        
-        
-      return true;
-    };
-    
-    
-     public boolean decelerate(){
-         
-         if(currspeed<=0){
-             return false;
-         }
-         currspeed-=5;
+
+    public boolean accelerate() {
+
+        if (currspeed >= topspeed && disabled) {
+            return false;
+        }
+        currspeed += 10;
+        disabled = (currspeed > topspeed);
+
         return true;
-    };
+    }
+
+    ;
+    
+    
+     public boolean decelerate() {
+
+        if (currspeed <= 0) {
+            return false;
+        }
+        currspeed -= 5;
+        return true;
+    }
+
+    ;
      
       @Override
     public String toString() {
-        
-        
-             
-           
-        return  String.format("The %s %s %s with a plateno. %s. is accelerating from 0kph to %d ",color,manufacturer,model,plateNumber,currspeed);     
+        return String.format("The %s %s %s with a plateno. %s. is accelerating from 0kph to %d ", color, manufacturer, model, plateNumber, currspeed);
         //return "Vehicle{" + "topspeed=" + topspeed + ", currspeed=" + currspeed + ", color=" + color + ", model=" + model + ", manufacturer=" + manufacturer + ", plateNumber=" + plateNumber + ", disabled=" + disabled + '}';
     }
-    
-    public void display(){
+
+    public void display() {
         StringBuilder sb = new StringBuilder();
-        
+
 //         private int topspeed;
 //    private int currspeed;
 //    private String color;
@@ -133,16 +129,16 @@ public class Vehicle {
         sb.append(topspeed);
         sb.append("\ncurrspeed");
         sb.append(currspeed);
-        sb.append("\ncolor");
+        sb.append("\ncolor: ");
         sb.append(color);
         sb.append("\nmodel:");
         sb.append(model);
-        sb.append("\nmanu:");
+        sb.append("\nmanu: ");
         sb.append(manufacturer);
-        sb.append("\nplateNumber");
+        sb.append("\nplateNumber: ");
         sb.append(plateNumber);
         sb.append("\ndisabled:");
-        sb.append(disabled );
+        sb.append(disabled);
         System.out.println(sb);
     }
 }
