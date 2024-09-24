@@ -51,7 +51,7 @@ public class CommisionEmployee extends Employee {
 
     public void displayCommisionEmployee() {
         System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
-        System.out.printf("Employee ID : %d\n", EmpID);
+        System.out.printf("Employee ID : %d\n", empID);
         System.out.printf("Employee Sales : %.2f\n", totalSales);
         System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
     }

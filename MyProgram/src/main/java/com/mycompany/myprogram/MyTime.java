@@ -90,7 +90,6 @@ public class MyTime {
     }
     
     public void advanceTickByMinute(int length) {
-        // Advance minutes directly
         int totalMinutes = minutes + length;
         hours += totalMinutes / 60;     
         minutes = totalMinutes % 60;    

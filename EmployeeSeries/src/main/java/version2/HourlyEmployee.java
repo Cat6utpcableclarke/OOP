@@ -73,7 +73,7 @@ public class HourlyEmployee extends Employee {
 
     public double computeSalary() {
 
-        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + ((this.ratePerHour + this.ratePerHour / 2) * (this.totalHoursWorked - 40)) 
+        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + (this.ratePerHour *1.50)
                 : totalHoursWorked * ratePerHour;
 
         return salary;
@@ -87,7 +87,7 @@ public class HourlyEmployee extends Employee {
 //        System.out.printf("Employee rate : %.2f\n", ratePerHour);
 //        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
-          System.out.println(toString() + computeSalary() +super.Name +super.EmpID);
+          System.out.println(toString() + " Salary "+computeSalary() +" empName: "+super.Name +" empId: "+super.EmpID);
     }
 
     ;

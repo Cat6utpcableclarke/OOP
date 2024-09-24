@@ -64,7 +64,7 @@ public class HourlyEmployee {
 
     public double computeSalary() {
 
-        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + ((this.ratePerHour + this.ratePerHour / 2) * (this.totalHoursWorked - 40)) 
+     double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + (this.ratePerHour *1.50)
                 : totalHoursWorked * ratePerHour;
 
         return salary;

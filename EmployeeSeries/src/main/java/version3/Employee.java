@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package version3;
+import java.util.*;
+import java.time.*;
+
 
 
 
@@ -13,24 +16,38 @@ package version3;
 public class Employee {
     
     Name empName;
-    int EmpID;
+    int empID;
+    LocalDate dateApplied;
+
 
     public Employee(String fName,String mName,String lname ,int EmpID) {
         this.empName = new Name(fName,mName,lname);
-        this.EmpID = EmpID;
+        this.empID = EmpID;
     }
 
     public Employee(int EmpID) {
-        this.empName = new Name("xxxx","xxxx","xxxx");
-        this.EmpID = EmpID;
+        this.empName = new Name();
+        this.empID = EmpID;
+    }
+
+    public Employee(Name empName,int empID,int year,int month,int date) {
+        this.empName = empName;
+        this.empID = empID;
+        this.dateApplied = LocalDate.of(year, month, month);
+    }
+    
+    
+    public Employee(Name empName,int empID) {
+        this.empName = empName;
+        this.empID = empID;
+        this.dateApplied = LocalDate.now();
     }
     
      public Employee() {
-        this.empName = new Name("xxxx","xxxx","xxxx");
-        this.EmpID = 0;
     }
+
  
-    
+     
 
     public Name getEmpName() {
         return empName;
@@ -41,10 +58,19 @@ public class Employee {
     }
 
     public int getEmpID() {
-        return EmpID;
+        return empID;
     }
 
     public void setEmpID(int EmpID) {
-        this.EmpID = EmpID;
+        this.empID = EmpID;
     }  
+
+    public LocalDate getDateApplied() {
+        return dateApplied;
+    }
+
+    public void setDateApplied(LocalDate dateApplied) {
+        this.dateApplied = dateApplied;
+    }
+    
 }

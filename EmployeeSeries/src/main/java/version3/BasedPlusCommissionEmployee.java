@@ -71,7 +71,7 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 //    }
 
     public void displayBasedPlusCommissionEmployee() {
-         System.out.printf("Employee ID : %d\n", EmpID);
+         System.out.printf("Employee ID : %d\n", empID);
         System.out.printf("Employee Sales : %.2f\n", totalSales);
         System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
         System.out.printf("Employee Salary : %.2f\n", super.computeSalary()+BaseSalary);

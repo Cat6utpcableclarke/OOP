@@ -62,7 +62,7 @@ public class PieceEmployee extends Employee {
 
     public void displayPieceEmployee() {
         System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
-        System.out.printf("Employee ID : %d\n", EmpID);
+        System.out.printf("Employee ID : %d\n", empID);
         System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
         System.out.printf("Pieces Finished : %d\n", piecesFinished);
         System.out.printf("Employee salary : %.2f\n", this.computeSalary());
