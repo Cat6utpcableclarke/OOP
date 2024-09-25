@@ -33,12 +33,13 @@ public class HourlyEmployee extends Employee{
     }
 
     public HourlyEmployee(float totalHoursWorked, double ratePerHour) {
+        super();
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
 
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour, Name empName, int empID, int year, int month, int date) {
-        super(empName, empID, year, month, date);
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour,String fName, String mName, String lname, int empID, int year, int month, int date) {
+        super( fName,mName,lname,empID,year,month,date);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
@@ -76,12 +77,15 @@ public class HourlyEmployee extends Employee{
 
     ;
     
-    public void displayHourlyEmployee() {
-        System.out.printf("Employee Name: %s , %s, %s\n",empName.fname,empName.mname,empName.lname);
-        System.out.printf("Employee ID : %d\n",empID);
-        System.out.printf("Employee rate : %.2f\n", ratePerHour);
-        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+    public String displayHourlyEmployee() {
+//        System.out.printf("Employee Name: %s , %s, %s\n",empName.fname,empName.mname,empName.lname);
+//        System.out.printf("Employee ID : %d\n",empID);
+//        System.out.printf("Employee rate : %.2f\n", ratePerHour);
+//        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+
+            System.out.println(this+ super.toString() +this.computeSalary());
+            return " ";
     }
 
     ;

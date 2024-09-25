@@ -27,7 +27,7 @@ public class MyProgram {
 
         System.out.println(t1);
         
-        t2.advanceTickBySecond(120);
+        t2.advanceTickBySecond(1200);
         System.out.println(t2);
 
 //        System.out.println(t.toStringx());

@@ -43,15 +43,18 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
     public BasedPlusCommissionEmployee(String fName, String mName, String lname, int EmpID) {
         super(fName, mName, lname, EmpID);
-        this.BaseSalary = 0;
     }
     
-    
-
     public BasedPlusCommissionEmployee() {
-        super();
-        this.BaseSalary = 0;
+
     }
+
+    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String fName, String mName, String lname, int empID, int year, int month, int date) {
+        super(totalSales,fName, mName, lname, empID, year, month, date);
+        this.BaseSalary = BaseSalary;
+    }
+    
+    
    
     
     public double getBaseSalary() {
@@ -71,13 +74,15 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 //    }
 
     public void displayBasedPlusCommissionEmployee() {
-         System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Employee Sales : %.2f\n", totalSales);
-        System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
-        System.out.printf("Employee Salary : %.2f\n", super.computeSalary()+BaseSalary);
+//         System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Employee Sales : %.2f\n", totalSales);
+//        System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
+//        System.out.printf("Employee Salary : %.2f\n", super.computeSalary()+BaseSalary);
+          System.out.println(super.displayCommisionEmployee());
 
     }
 
+    
     @Override
     public String toString() {
         return "BasedPlusCommissionEmployee{" + "totalSales=" + totalSales + ", BaseSalary=" + BaseSalary + '}';

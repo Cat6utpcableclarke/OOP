@@ -76,10 +76,7 @@ public class MyTime {
         meridian = ("AM".equals(meridian)) ? "PM" : "AM";
     }
 
-    @Override
-    public String toString() {
-        return String.format("%02d:%02d:%02d %s", hours, minutes, seconds, meridian);
-    }
+   
     
     public void advanceTickBySecond(int length) {
  
@@ -122,6 +119,10 @@ public class MyTime {
         }
     }
 
+     @Override
+    public String toString() {
+        return String.format("%02d:%02d:%02d %s", hours, minutes, seconds, meridian);
+    }
     @Override
     public int hashCode() {
         int hash = 7;

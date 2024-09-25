@@ -68,7 +68,7 @@ public class PieceEmployee extends Employee {
 //        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
 //        System.out.printf("Pieces Finished : %d\n", piecesFinished);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
-        System.out.println(toString() + computeSalary() + super.Name +super.EmpID);
+        System.out.println(toString() +" Salary:"+computeSalary()+" "+ super.toString());
 
     }
     

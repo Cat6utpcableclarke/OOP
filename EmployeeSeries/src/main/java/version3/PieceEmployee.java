@@ -20,13 +20,10 @@ public class PieceEmployee extends Employee {
     }
 
     public PieceEmployee() {
-        super();
     }
 
     public PieceEmployee(String fName, String mName, String lname, int EmpID) {
         super(fName, mName, lname, EmpID);
-        this.piecesFinished = 0;
-        this.ratePerPiece = 0;
 
     }
 
@@ -35,6 +32,14 @@ public class PieceEmployee extends Employee {
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lname, int empID, int year, int month, int date) {
+        super(fName, mName, lname, empID, year, month, date);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+    
+    
 
     public int getPiecesFinished() {
         return piecesFinished;
@@ -61,13 +66,22 @@ public class PieceEmployee extends Employee {
     }
 
     public void displayPieceEmployee() {
-        System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
-        System.out.printf("Employee ID : %d\n", empID);
-        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
-        System.out.printf("Pieces Finished : %d\n", piecesFinished);
-        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+//        System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
+//        System.out.printf("Employee ID : %d\n", empID);
+//        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
+//        System.out.printf("Pieces Finished : %d\n", piecesFinished);
+//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+          System.out.println(this.toString()+super.toString()+this.computeSalary());
     }
+    
+    
 ;
+
+    @Override
+    public String toString() {
+        return "PieceEmployee{" + "piecesFinished=" + piecesFinished + ", ratePerPiece=" + ratePerPiece + '}';
+    }
+
 }
 
 //PieceWorkerEmployee

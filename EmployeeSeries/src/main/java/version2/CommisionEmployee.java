@@ -20,8 +20,8 @@ public class CommisionEmployee extends Employee {
     }
 
     public CommisionEmployee(double totalSales, String Name, int EmpID) {
-        super(Name, EmpID);
-        this.totalSales = totalSales;
+       super(Name, EmpID);
+       this.totalSales = totalSales;
     }
 
     public CommisionEmployee(double totalSales) {
@@ -45,12 +45,13 @@ public class CommisionEmployee extends Employee {
         return totalSales * rate;
     }
 
-    public void displayCommisionEmployee() {
+    public String displayCommisionEmployee() {
 //        System.out.printf("Employee Name: %s\n", Name);
 //        System.out.printf("Employee Sales : %d\n",EmpID);
 //        System.out.printf("Employee Sales : %.2f\n", totalSales);
 //        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
-          System.out.println(toString() + computeSalary()+super.Name +super.EmpID);
+          System.out.println(toString() + " Salary:"+computeSalary()+" "+super.toString());
+          return " ";
     }
 
     @Override

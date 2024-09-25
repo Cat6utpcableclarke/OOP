@@ -17,12 +17,13 @@ public class Employee {
     
     Name empName;
     int empID;
-    LocalDate dateApplied;
-
+    LocalDate bDay;
+    LocalDate dateHired;
 
     public Employee(String fName,String mName,String lname ,int EmpID) {
         this.empName = new Name(fName,mName,lname);
         this.empID = EmpID;
+        this.dateHired = LocalDate.now();
     }
 
     public Employee(int EmpID) {
@@ -30,18 +31,13 @@ public class Employee {
         this.empID = EmpID;
     }
 
-    public Employee(Name empName,int empID,int year,int month,int date) {
-        this.empName = empName;
+    public Employee(String fName,String mName,String lname,int empID,int year,int month,int date) {
+        this.empName = new Name(fName,mName,lname);
         this.empID = empID;
-        this.dateApplied = LocalDate.of(year, month, month);
+        this.bDay  = LocalDate.of(year, month, date);
+        this.dateHired = LocalDate.now();
     }
     
-    
-    public Employee(Name empName,int empID) {
-        this.empName = empName;
-        this.empID = empID;
-        this.dateApplied = LocalDate.now();
-    }
     
      public Employee() {
     }
@@ -66,11 +62,20 @@ public class Employee {
     }  
 
     public LocalDate getDateApplied() {
-        return dateApplied;
+        return bDay ;
     }
 
     public void setDateApplied(LocalDate dateApplied) {
-        this.dateApplied = dateApplied;
+        this.bDay  = dateApplied;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "empName=" + empName + ", empID=" + empID + ", bDay =" + bDay  + ", dateHired=" + dateHired + '}';
+    }
+
+    
+    
+    
     
 }

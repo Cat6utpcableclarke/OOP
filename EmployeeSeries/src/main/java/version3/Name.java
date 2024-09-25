@@ -47,6 +47,11 @@ public class Name {
         this.lname = lname;
     }
 
+    @Override
+    public String toString() {
+        return "Name{" + "fname=" + fname + ", mname=" + mname + ", lname=" + lname + '}';
+    }
+
     
     
     
