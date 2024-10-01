@@ -12,66 +12,60 @@ package version3;
  */
 public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
-    private double BaseSalary;
+    private double baseSalary;
 
 //    private String empName;
 //    private int empID;
 
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String fName, String mName, String lname, int EmpID) {
-        super(totalSales, fName, mName, lname, EmpID);
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, int EmpID) {
-        super(totalSales, EmpID);
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales) {
-        super(totalSales);
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary, String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(double BaseSalary) {
-        this.BaseSalary = BaseSalary;
-    }
-
-    public BasedPlusCommissionEmployee(String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
-    }
+    
     
     public BasedPlusCommissionEmployee() {
 
     }
 
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String fName, String mName, String lname, int empID, int year, int month, int date) {
-        super(totalSales,fName, mName, lname, empID, year, month, date);
-        this.BaseSalary = BaseSalary;
+    public BasedPlusCommissionEmployee(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
+
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales, String fName, String mName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(totalSales, fName, mName, lName, empID, month, date, year, month2, date2, year2);
+        this.baseSalary = baseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales, int month, int date, int year) {
+        super(totalSales, month, date, year);
+        this.baseSalary = baseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales, String fName, String mName, String lName, int empID, int month, int date, int year) {
+        super(totalSales, fName, mName, lName, empID, month, date, year);
+        this.baseSalary = baseSalary;
+    }
+
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales) {
+        super(totalSales);
+        this.baseSalary = baseSalary;
+    }
+
+   
     
     
    
     
     public double getBaseSalary() {
-        return BaseSalary;
+        return baseSalary;
     }
 
-    public void setBaseSalary(double BaseSalary) {
-        this.BaseSalary = BaseSalary;
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
-//    @Override
-//    public double computeSalary() {
-//
-//        double salary =(totalSales < 10000)?(totalSales * 0.05) + BaseSalary:(totalSales >= 10000 && totalSales < 100000)? (totalSales * 0.10) + BaseSalary:
-//                       (totalSales < 1000000)? (totalSales * 0.20) + BaseSalary: (totalSales * 0.30) + BaseSalary;
-//        return salary;
-//    }
+    @Override
+    public double computeSalary() {
+
+         double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
+        return (totalSales *rate)+baseSalary;
+    }
 
     public void displayBasedPlusCommissionEmployee() {
 //         System.out.printf("Employee ID : %d\n", empID);
@@ -82,10 +76,12 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
     }
 
-    
     @Override
     public String toString() {
-        return "BasedPlusCommissionEmployee{" + "totalSales=" + totalSales + ", BaseSalary=" + BaseSalary + '}';
+        return  "\nbaseSalary=" + baseSalary ;
     }
+
+    
+   
 
 }

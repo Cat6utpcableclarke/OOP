@@ -136,8 +136,8 @@ public class EmployeeSeries {
 
 
 
-        HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310);
-        HourlyEmployee h2 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 2012, 12, 12);
+        HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310,5,12,2005,10,2,2024);
+        HourlyEmployee h2 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 12,12,2012);
         HourlyEmployee h3 = new HourlyEmployee();
         HourlyEmployee h4 = new HourlyEmployee(41, 100);
 
@@ -154,10 +154,10 @@ public class EmployeeSeries {
         System.out.println("----------");
         System.out.println("----------COMMISION EMPLOYEEE----------");
         CommisionEmployee c1 = new CommisionEmployee();
-        CommisionEmployee c2 = new CommisionEmployee("Pablo", "blo", "jab", 3439);
-        CommisionEmployee c3 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439);
+        CommisionEmployee c2 = new CommisionEmployee(12300,"Pablo", "blo", "jab", 3439,12,5,2012,10,2,2024);
+        CommisionEmployee c3 = new CommisionEmployee(12300,12,5,2012);
         CommisionEmployee c4 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 2012, 12, 12);
-
+        CommisionEmployee c5 = new CommisionEmployee(12300);
         c1.displayCommisionEmployee();
         System.out.println("----------");
         c2.displayCommisionEmployee();
@@ -166,12 +166,16 @@ public class EmployeeSeries {
         System.out.println("----------");
         c4.displayCommisionEmployee();
         System.out.println("----------");
+        c5.displayCommisionEmployee();
+        System.out.println("----------");
         System.out.println("----------");
         System.out.println("----------PIECE EMPLOYEEE----------");
         PieceEmployee p1 = new PieceEmployee();
-        PieceEmployee p2 = new PieceEmployee("Jab", "Baj", "AJB", 1456);
-        PieceEmployee p3 = new PieceEmployee(500, 1.0, "Jack", "Cole", "Lin", 7890);
-        PieceEmployee p4 = new PieceEmployee(500, 1.0, "Jack", "Cole", "Lin", 7890, 2012, 12, 12);
+        PieceEmployee p2 = new PieceEmployee("Jab", "Baj", "AJB", 1456,12,12,2012);
+        PieceEmployee p3 = new PieceEmployee(500, 1.0, "Jack", "Cole", "Lin", 7890,3,3,2000,12,12,2012);
+        PieceEmployee p4 = new PieceEmployee(500, 1.0, "Jack", "Cole", "Lin", 7890, 12,12,2012);
+        PieceEmployee p5 = new PieceEmployee(5000,20.0);
+        PieceEmployee p6 = new PieceEmployee(5000,20.0,12,12,2012);
         p1.displayPieceEmployee();
         System.out.println("----------");
         p2.displayPieceEmployee();
@@ -179,15 +183,22 @@ public class EmployeeSeries {
         p3.displayPieceEmployee();
         System.out.println("----------");
         p4.displayPieceEmployee();
+         System.out.println("----------");
+        p5.displayPieceEmployee();  
+        System.out.println("----------");
+        p6.displayPieceEmployee();
+        
         System.out.println("----------");
         System.out.println("----------");
 //
         System.out.println("----------BASE PLUS COMMISSION EMPLOYEEE----------");
 
         BasedPlusCommissionEmployee b1 = new BasedPlusCommissionEmployee();
-        BasedPlusCommissionEmployee b2 = new BasedPlusCommissionEmployee(10000, 9000, "Kan", "thot", "Tan", 8888);
-        BasedPlusCommissionEmployee b3 = new BasedPlusCommissionEmployee("Neto", "Talib", "Otob", 6969);
-        BasedPlusCommissionEmployee b4 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "thost", "Tans", 8888, 2012, 12, 12);
+        BasedPlusCommissionEmployee b2 = new BasedPlusCommissionEmployee(10000);
+        BasedPlusCommissionEmployee b3 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "thost", "Tans", 8888,12,12,1998,10,2,2024);
+        BasedPlusCommissionEmployee b4 = new BasedPlusCommissionEmployee(10000, 9000, 12,12,1998);
+        BasedPlusCommissionEmployee b5 = new BasedPlusCommissionEmployee(10000,9000,"Neto", "Talib", "Otob", 6969,2,14,2002);
+        BasedPlusCommissionEmployee b6 = new BasedPlusCommissionEmployee(10000, 9000);
 
         b1.displayBasedPlusCommissionEmployee();
         System.out.println("----------");
@@ -196,5 +207,9 @@ public class EmployeeSeries {
         b3.displayBasedPlusCommissionEmployee();
         System.out.println("----------");
         b4.displayBasedPlusCommissionEmployee();
+        System.out.println("----------");
+        b5.displayBasedPlusCommissionEmployee();
+        System.out.println("----------");
+        b6.displayBasedPlusCommissionEmployee();
     }
 }

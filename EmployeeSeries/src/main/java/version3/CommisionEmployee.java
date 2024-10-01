@@ -12,37 +12,29 @@ public class CommisionEmployee extends Employee {
 
     protected double totalSales;
 
-    public CommisionEmployee(double totalSales, String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
+    public CommisionEmployee() {
+    }
+
+    public CommisionEmployee(double totalSales, String fName, String mName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName, mName, lName, empID, month, date, year, month2, date2, year2);
         this.totalSales = totalSales;
     }
 
-    public CommisionEmployee(double totalSales, int EmpID) {
-        super(EmpID);
+    public CommisionEmployee(double totalSales, int month, int date, int year) {
+        super(month, date, year);
+        this.totalSales = totalSales;
+    }
+
+    public CommisionEmployee(double totalSales, String fName, String mName, String lName, int empID, int month, int date, int year) {
+        super(fName, mName, lName, empID, month, date, year);
         this.totalSales = totalSales;
     }
 
     public CommisionEmployee(double totalSales) {
-        super();
         this.totalSales = totalSales;
     }
 
-    public CommisionEmployee(String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
-        this.totalSales = 0;
-    }
-
-    public CommisionEmployee(double totalSales, String fName, String mName, String lname, int empID, int year, int month, int date) {
-        super(fName, mName, lname, empID, year, month, date);
-        this.totalSales = totalSales;
-    }
-    
-    
-    
-
-    public CommisionEmployee() {
-    }
-
+ 
     public double getTotalSales() {
         return totalSales;
     }
@@ -62,14 +54,16 @@ public class CommisionEmployee extends Employee {
 //        System.out.printf("Employee ID : %d\n", empID);
 //        System.out.printf("Employee Sales : %.2f\n", totalSales);
 //        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
-          System.out.println(this.toString()+ super.toString()+this.computeSalary());
+          System.out.println(this+ super.toString()+"\n"+this.computeSalary());
           return " ";
     }
 
     @Override
     public String toString() {
-        return "CommisionEmployee{" + "totalSales=" + totalSales + '}';
+        return "totalSales=" + totalSales;
     }
+
+    
 }
 
 //CommissionEmployee

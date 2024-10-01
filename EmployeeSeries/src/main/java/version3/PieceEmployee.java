@@ -13,8 +13,25 @@ public class PieceEmployee extends Employee {
     private int piecesFinished;
     private double ratePerPiece;
 
-    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName, mName, lName, empID, month, date, year, month2, date2, year2);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece, int month, int date, int year) {
+        super(month, date, year);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lName, int empID, int month, int date, int year) {
+        super(fName, mName, lName, empID, month, date, year);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece) {
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
@@ -22,22 +39,11 @@ public class PieceEmployee extends Employee {
     public PieceEmployee() {
     }
 
-    public PieceEmployee(String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
-
+    public PieceEmployee(String fName, String mName, String lName, int empID, int month, int date, int year) {
+        super(fName, mName, lName, empID, month, date, year);
     }
 
-    public PieceEmployee(int piecesFinished, double ratePerPiece, int EmpID) {
-        super(EmpID);
-        this.piecesFinished = piecesFinished;
-        this.ratePerPiece = ratePerPiece;
-    }
-
-    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String mName, String lname, int empID, int year, int month, int date) {
-        super(fName, mName, lname, empID, year, month, date);
-        this.piecesFinished = piecesFinished;
-        this.ratePerPiece = ratePerPiece;
-    }
+    
     
     
 
@@ -71,7 +77,7 @@ public class PieceEmployee extends Employee {
 //        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
 //        System.out.printf("Pieces Finished : %d\n", piecesFinished);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
-          System.out.println(this.toString()+super.toString()+this.computeSalary());
+          System.out.println(this.toString()+super.toString()+"\n"+this.computeSalary());
     }
     
     
@@ -79,7 +85,7 @@ public class PieceEmployee extends Employee {
 
     @Override
     public String toString() {
-        return "PieceEmployee{" + "piecesFinished=" + piecesFinished + ", ratePerPiece=" + ratePerPiece + '}';
+        return "piecesFinished=" + piecesFinished + ", \nratePerPiece=" + ratePerPiece ;
     }
 
 }

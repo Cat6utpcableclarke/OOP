@@ -19,32 +19,31 @@ public class HourlyEmployee extends Employee{
     public HourlyEmployee() {
     }
 
-    
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName, String mName, String lname, int EmpID) {
-        super(fName, mName, lname, EmpID);
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName, String mName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName, mName, lName, empID, month, date, year, month2, date2, year2);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
 
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour, int EmpID) {
-        super(EmpID);
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, int month, int date, int year) {
+        super(month, date, year);
+        this.totalHoursWorked = totalHoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName, String mName, String lName, int empID, int month, int date, int year) {
+        super(fName, mName, lName, empID, month, date, year);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
 
     public HourlyEmployee(float totalHoursWorked, double ratePerHour) {
-        super();
-        this.totalHoursWorked = totalHoursWorked;
-        this.ratePerHour = ratePerHour;
-    }
-
-    public HourlyEmployee(float totalHoursWorked, double ratePerHour,String fName, String mName, String lname, int empID, int year, int month, int date) {
-        super( fName,mName,lname,empID,year,month,date);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
 
     
+   
 
     
     
@@ -84,18 +83,19 @@ public class HourlyEmployee extends Employee{
 //        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
 
-            System.out.println(this+ super.toString() +this.computeSalary());
+            System.out.println(this+ super.toString() +"\n"+this.computeSalary());
             return " ";
     }
 
-    ;
-    
-    
-    
     @Override
     public String toString() {
-        return "CommisionEmployee{" + "totalHoursWorked=" + totalHoursWorked + ", ratePerHour=" + ratePerHour + '}';
+        return "HourlyEmployee\n" + "totalHoursWorked=" + totalHoursWorked + ", \nratePerHour=" + ratePerHour;
     }
+
+ 
+    
+    
+    
 }
 //HourlyEmployee
 //-totalHoursWorked:float

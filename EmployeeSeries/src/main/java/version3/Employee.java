@@ -17,26 +17,29 @@ public class Employee {
     
     Name empName;
     int empID;
-    LocalDate bDay;
-    LocalDate dateHired;
+    MyDate bDay;
+    MyDate dateHired;
 
-    public Employee(String fName,String mName,String lname ,int EmpID) {
-        this.empName = new Name(fName,mName,lname);
-        this.empID = EmpID;
-        this.dateHired = LocalDate.now();
-    }
-
-    public Employee(int EmpID) {
-        this.empName = new Name();
-        this.empID = EmpID;
-    }
-
-    public Employee(String fName,String mName,String lname,int empID,int year,int month,int date) {
-        this.empName = new Name(fName,mName,lname);
+    public Employee( String fName,String mName,String lName,int empID,int month,int date, int year,int month2,int date2, int year2 ) {
+        this.empName = new Name (fName,mName,lName);
         this.empID = empID;
-        this.bDay  = LocalDate.of(year, month, date);
-        this.dateHired = LocalDate.now();
+        this.bDay = new MyDate(month,date,year);
+        this.dateHired = new MyDate(month2,date2,year2);
     }
+
+    public Employee(int month,int date, int year) {
+        this.bDay =  new MyDate(month,date,year);
+        this.dateHired =  new MyDate(10,2,2024);
+    }
+
+    public Employee(String fName,String mName,String lName, int empID,int month,int date, int year) {
+        this.empName = new Name (fName,mName,lName);
+        this.empID = empID;
+        this.bDay = new MyDate();
+        this.dateHired =  new MyDate(month,date,year);
+    }
+
+    
     
     
      public Employee() {
@@ -61,18 +64,30 @@ public class Employee {
         this.empID = EmpID;
     }  
 
-    public LocalDate getDateApplied() {
-        return bDay ;
+    public MyDate getbDay() {
+        return bDay;
     }
 
-    public void setDateApplied(LocalDate dateApplied) {
-        this.bDay  = dateApplied;
+    public void setbDay(MyDate bDay) {
+        this.bDay = bDay;
+    }
+
+    public MyDate getDateHired() {
+        return dateHired;
+    }
+
+    public void setDateHired(MyDate dateHired) {
+        this.dateHired = dateHired;
     }
 
     @Override
     public String toString() {
-        return "Employee{" + "empName=" + empName + ", empID=" + empID + ", bDay =" + bDay  + ", dateHired=" + dateHired + '}';
+        return "\nempName=" + empName + ", \nempID=" + empID + ", \nbDay=" + bDay + ", \ndateHired=" + dateHired ;
     }
+
+   
+
+  
 
     
     

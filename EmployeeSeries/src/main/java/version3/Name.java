@@ -10,46 +10,46 @@ package version3;
  */
 public class Name {
     
-   protected String fname;
-   protected String mname;
-   protected String lname;
+   protected String fName;
+   protected String mName;
+   protected String lName;
 
     public Name() {
     }
 
     public Name(String fname, String mname, String lname) {
-        this.fname = fname;
-        this.mname = mname;
-        this.lname = lname;
+        this.fName = fname;
+        this.mName = mname;
+        this.lName = lname;
     }
 
     public String getFname() {
-        return fname;
+        return fName;
     }
 
     public void setFname(String fname) {
-        this.fname = fname;
+        this.fName = fname;
     }
 
     public String getMname() {
-        return mname;
+        return mName;
     }
 
     public void setMname(String mname) {
-        this.mname = mname;
+        this.mName = mname;
     }
 
     public String getLname() {
-        return lname;
+        return lName;
     }
 
     public void setLname(String lname) {
-        this.lname = lname;
+        this.lName = lname;
     }
 
     @Override
     public String toString() {
-        return "Name{" + "fname=" + fname + ", mname=" + mname + ", lname=" + lname + '}';
+        return  fName + " " + mName + " " + lName ;
     }
 
     
