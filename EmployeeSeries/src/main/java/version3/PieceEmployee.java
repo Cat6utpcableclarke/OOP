@@ -35,7 +35,13 @@ public class PieceEmployee extends Employee {
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
-
+    
+    
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName,  String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName, lName, empID, month, date, year, month2, date2, year2);
+        this.piecesFinished = piecesFinished;
+        this.ratePerPiece = ratePerPiece;
+    }
     public PieceEmployee() {
     }
 
@@ -77,7 +83,7 @@ public class PieceEmployee extends Employee {
 //        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
 //        System.out.printf("Pieces Finished : %d\n", piecesFinished);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
-          System.out.println(this.toString()+super.toString()+"\n"+this.computeSalary());
+          System.out.println(this.toString()+super.toString()+"\n"+"Salary : "+this.computeSalary());
     }
     
     

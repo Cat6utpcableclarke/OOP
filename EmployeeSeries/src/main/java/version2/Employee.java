@@ -10,40 +10,40 @@ package version2;
  */
 public class Employee {
     
-    protected String Name;
-    protected int EmpID;
+    protected String name;
+    protected int empID;
 
     public Employee() {
     }
 
-    public Employee(String Name, int EmpID) {
-        this.Name = Name;
-        this.EmpID = EmpID;
+    public Employee(String name, int empID) {
+        this.name = name;
+        this.empID = empID;
     }
 
-    public Employee(String Name) {
-        this.Name = Name;
+    public Employee(String name) {
+        this.name = name;
     }
     
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getEmpID() {
-        return EmpID;
+        return empID;
     }
 
-    public void setEmpID(int EmpID) {
-        this.EmpID = EmpID;
+    public void setEmpID(int empID) {
+        this.empID = empID;
     }
 
     @Override
     public String toString() {
-        return "Employee{" + "Name=" + Name + ", EmpID=" + EmpID + '}';
+        return "Employee{" + "Name=" + name + ", EmpID=" + empID + '}';
     }
     
     

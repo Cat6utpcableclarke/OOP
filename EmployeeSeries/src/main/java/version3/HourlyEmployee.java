@@ -41,7 +41,13 @@ public class HourlyEmployee extends Employee{
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
-
+    
+    
+     public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName,String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName, lName, empID, month, date, year, month2, date2, year2);
+        this.totalHoursWorked = totalHoursWorked;
+        this.ratePerHour = ratePerHour;
+    }
     
    
 
@@ -69,7 +75,8 @@ public class HourlyEmployee extends Employee{
     
     public double computeSalary() {
 
-        double salary = (totalHoursWorked > 40) ? (totalHoursWorked * ratePerHour) * 1.50 : totalHoursWorked * ratePerHour;
+         double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + (this.ratePerHour *1.50)
+                : totalHoursWorked * ratePerHour;
 
         return salary;
     }
@@ -83,7 +90,7 @@ public class HourlyEmployee extends Employee{
 //        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
 //        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
 
-            System.out.println(this+ super.toString() +"\n"+this.computeSalary());
+            System.out.println(this+ super.toString() +"\n"+"Salary : "+this.computeSalary());
             return " ";
     }
 

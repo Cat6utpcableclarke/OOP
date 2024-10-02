@@ -33,7 +33,11 @@ public class CommisionEmployee extends Employee {
     public CommisionEmployee(double totalSales) {
         this.totalSales = totalSales;
     }
-
+    
+    public CommisionEmployee(double totalSales, String fName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(fName,lName, empID, month, date, year, month2, date2, year2);
+        this.totalSales = totalSales;
+    }
  
     public double getTotalSales() {
         return totalSales;
@@ -49,13 +53,16 @@ public class CommisionEmployee extends Employee {
         return totalSales * rate;
     }
 
-    public String displayCommisionEmployee() {
+    @Override
+    public void display() {
 //        System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
 //        System.out.printf("Employee ID : %d\n", empID);
 //        System.out.printf("Employee Sales : %.2f\n", totalSales);
 //        System.out.printf("Employee Salary : %.2f\n", this.computeSalary());
-          System.out.println(this+ super.toString()+"\n"+this.computeSalary());
-          return " ";
+          System.out.println(this.toString());
+          super.display();
+          System.out.println("Salary: "+this.computeSalary());
+          
     }
 
     @Override

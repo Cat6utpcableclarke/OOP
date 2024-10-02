@@ -23,6 +23,11 @@ public class Name {
         this.lName = lname;
     }
 
+    public Name(String fName, String lName) {
+        this.fName = fName;
+        this.lName = lName;
+    }
+
     public String getFname() {
         return fName;
     }
@@ -46,10 +51,20 @@ public class Name {
     public void setLname(String lname) {
         this.lName = lname;
     }
-
+    
+    public void display(){
+        
+        this.toString();
+    
+    }
     @Override
     public String toString() {
-        return  fName + " " + mName + " " + lName ;
+        
+        if(mName !=null){
+        return  fName + ", " + mName.charAt(0) +".," + lName ;
+        }else{
+        return  fName + ","+ lName ;
+        }
     }
 
     

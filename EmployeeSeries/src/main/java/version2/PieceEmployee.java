@@ -16,24 +16,23 @@ public class PieceEmployee extends Employee {
     public PieceEmployee() {
     }
 
-    public PieceEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
+    public PieceEmployee(String name, int empID) {
+        super(name, empID);
     }
 
     public PieceEmployee(int piecesFinished, double ratePerPiece) {
-        super();
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
 
-    public PieceEmployee(int piecesFinished, double ratePerPiece, String Name, int EmpID) {
-        super(Name, EmpID);
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String name, int empID) {
+        super(name, empID);
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
 
-    public PieceEmployee(String Name) {
-        super(Name);
+    public PieceEmployee(String name) {
+        super(name);
     }
     
     

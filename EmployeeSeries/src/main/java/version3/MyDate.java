@@ -48,7 +48,10 @@ public class MyDate {
     }
     
     
-    
+     public String display(){
+        
+        return this.toString();
+    }
 
     @Override
     public String toString() {

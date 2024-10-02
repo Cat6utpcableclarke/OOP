@@ -39,7 +39,12 @@ public class Employee {
         this.dateHired =  new MyDate(month,date,year);
     }
 
-    
+     public Employee( String fName,String lName,int empID,int month,int date, int year,int month2,int date2, int year2 ) {
+        this.empName = new Name (fName,lName);
+        this.empID = empID;
+        this.bDay = new MyDate(month,date,year);
+        this.dateHired = new MyDate(month2,date2,year2);
+    }
     
     
      public Employee() {
@@ -79,10 +84,13 @@ public class Employee {
     public void setDateHired(MyDate dateHired) {
         this.dateHired = dateHired;
     }
-
+     public void display(){
+         
+        this.toString();
+    }
     @Override
     public String toString() {
-        return "\nempName=" + empName + ", \nempID=" + empID + ", \nbDay=" + bDay + ", \ndateHired=" + dateHired ;
+        return "\nempName=" + empName + " \nempID=" + empID + ", \nbDay=" + bDay + ", \ndateHired=" + dateHired ;
     }
 
    

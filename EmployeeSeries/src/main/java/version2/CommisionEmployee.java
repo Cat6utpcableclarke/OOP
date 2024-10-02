@@ -15,12 +15,12 @@ public class CommisionEmployee extends Employee {
     public CommisionEmployee() {
     }
 
-    public CommisionEmployee(String Name, int EmpID) {
-        super(Name, EmpID);
+    public CommisionEmployee(String name, int empID) {
+        super(name, empID);
     }
 
-    public CommisionEmployee(double totalSales, String Name, int EmpID) {
-       super(Name, EmpID);
+    public CommisionEmployee(double totalSales, String name, int empID) {
+       super(name, empID);
        this.totalSales = totalSales;
     }
 
@@ -28,8 +28,8 @@ public class CommisionEmployee extends Employee {
         this.totalSales = totalSales;
     }
 
-    public CommisionEmployee(String Name) {
-        super(Name);
+    public CommisionEmployee(String name) {
+        super(name);
     }
 
     public double getTotalSales() {

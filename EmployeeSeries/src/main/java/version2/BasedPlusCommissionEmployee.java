@@ -21,34 +21,34 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
         super(Name, EmpID);
     }
 
-    public BasedPlusCommissionEmployee(double BaseSalary) {
-        this.baseSalary = BaseSalary;
+    public BasedPlusCommissionEmployee(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
-    public BasedPlusCommissionEmployee(double BaseSalary, String Name, int EmpID) {
-        super(Name, EmpID);
+    public BasedPlusCommissionEmployee(double baseSalary, String name, int empID) {
+        super(name, empID);
  
-        this.baseSalary = BaseSalary;
+        this.baseSalary = baseSalary;
     }
 
-    public BasedPlusCommissionEmployee(double BaseSalary, double totalSales, String Name, int EmpID) {
-        super(totalSales, Name, EmpID);
-        this.baseSalary = BaseSalary;
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales, String name, int empID) {
+        super(totalSales, name, empID);
+        this.baseSalary = baseSalary;
     }
 
     public double getBaseSalary() {
         return baseSalary;
     }
 
-    public void setBaseSalary(double BaseSalary) {
-        this.baseSalary = BaseSalary;
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
     @Override
     public double computeSalary() {
 
-       double rate = (totalSales < 10000) ?  0.05 : (totalSales < 100000) ?  0.10 : (totalSales < 1000000) ?  0.20 : 0.30;
-        return (totalSales *rate)+baseSalary;
+      
+        return super.computeSalary()+baseSalary;
     }
 
     public void displayBasedPlusCommissionEmployee() {
