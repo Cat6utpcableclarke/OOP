@@ -9,7 +9,7 @@ package version3;
  * @author light
  */
 public class MyDate {
-    
+
     private int month;
     private int day;
     private int year;
@@ -46,17 +46,15 @@ public class MyDate {
     public void setYear(int year) {
         this.year = year;
     }
-    
-    
-     public String display(){
-        
-        return this.toString();
+
+    public void display() {
+
+        System.out.println(this.toString());
     }
 
     @Override
     public String toString() {
-        return + month + " " + day + " " + year ;
+        return +month + " " + day + " " + year;
     }
-    
-    
+
 }

@@ -35,23 +35,19 @@ public class PieceEmployee extends Employee {
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
-    
-    
-    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName,  String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+
+    public PieceEmployee(int piecesFinished, double ratePerPiece, String fName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
         super(fName, lName, empID, month, date, year, month2, date2, year2);
         this.piecesFinished = piecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
+
     public PieceEmployee() {
     }
 
     public PieceEmployee(String fName, String mName, String lName, int empID, int month, int date, int year) {
         super(fName, mName, lName, empID, month, date, year);
     }
-
-    
-    
-    
 
     public int getPiecesFinished() {
         return piecesFinished;
@@ -77,21 +73,20 @@ public class PieceEmployee extends Employee {
         return salary;
     }
 
-    public void displayPieceEmployee() {
-//        System.out.printf("Employee Name: %s , %s, %s\n", empName.fname, empName.mname, empName.lname);
-//        System.out.printf("Employee ID : %d\n", empID);
-//        System.out.printf("Rate Per Piece: %.2f\n", ratePerPiece);
-//        System.out.printf("Pieces Finished : %d\n", piecesFinished);
-//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
-          System.out.println(this.toString()+super.toString()+"\n"+"Salary : "+this.computeSalary());
+    /**
+     *
+     */
+    @Override
+    public void display() {
+
+        System.out.println(this + super.toString() + "\n" + "Salary : " + this.computeSalary());
     }
-    
-    
-;
+
+    ;
 
     @Override
     public String toString() {
-        return "piecesFinished=" + piecesFinished + ", \nratePerPiece=" + ratePerPiece ;
+        return "piecesFinished=" + piecesFinished + ", \nratePerPiece=" + ratePerPiece;
     }
 
 }

@@ -35,25 +35,7 @@ public class HourlyEmployee extends Employee {
         super(name);
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public int getEmpID() {
-        return empID;
-    }
-
-    @Override
-    public void setEmpID(int empID) {
-        this.empID = empID;
-    }
+ 
 
     public float getTotalHoursWorked() {
         return totalHoursWorked;

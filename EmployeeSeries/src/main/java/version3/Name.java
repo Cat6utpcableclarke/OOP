@@ -9,10 +9,10 @@ package version3;
  * @author light
  */
 public class Name {
-    
-   protected String fName;
-   protected String mName;
-   protected String lName;
+
+    private String fName;
+    private String mName;
+    private String lName;
 
     public Name() {
     }
@@ -51,24 +51,20 @@ public class Name {
     public void setLname(String lname) {
         this.lName = lname;
     }
-    
-    public void display(){
-        
-        this.toString();
-    
+
+    public void display() {
+        System.out.println(this.toString());
+
     }
+
     @Override
     public String toString() {
-        
-        if(mName !=null){
-        return  fName + ", " + mName.charAt(0) +".," + lName ;
-        }else{
-        return  fName + ","+ lName ;
+
+        if (mName != null) {
+            return fName + ", " + mName.charAt(0) + ".," + lName;
+        } else {
+            return fName + "," + lName;
         }
     }
 
-    
-    
-    
 }
-

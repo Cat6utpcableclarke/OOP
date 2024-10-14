@@ -4,14 +4,11 @@
  */
 package version3;
 
-
 /**
  *
  * @author light
  */
-
-
-public class HourlyEmployee extends Employee{
+public class HourlyEmployee extends Employee {
 
     private float totalHoursWorked;
     private double ratePerHour;
@@ -41,20 +38,13 @@ public class HourlyEmployee extends Employee{
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
-    
-    
-     public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName,String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+
+    public HourlyEmployee(float totalHoursWorked, double ratePerHour, String fName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
         super(fName, lName, empID, month, date, year, month2, date2, year2);
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
-    
-   
 
-    
-    
-    
-   
     public float getTotalHoursWorked() {
         return totalHoursWorked;
     }
@@ -71,11 +61,9 @@ public class HourlyEmployee extends Employee{
         this.ratePerHour = ratePerHour;
     }
 
-   
-    
     public double computeSalary() {
 
-         double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + (this.ratePerHour *1.50)
+        double salary = (totalHoursWorked > 40) ? this.ratePerHour * 40 + (this.ratePerHour * 1.50)
                 : totalHoursWorked * ratePerHour;
 
         return salary;
@@ -83,26 +71,25 @@ public class HourlyEmployee extends Employee{
 
     ;
     
-    public String displayHourlyEmployee() {
-//        System.out.printf("Employee Name: %s , %s, %s\n",empName.fname,empName.mname,empName.lname);
-//        System.out.printf("Employee ID : %d\n",empID);
-//        System.out.printf("Employee rate : %.2f\n", ratePerHour);
-//        System.out.printf("Employee hours : %.2f\n", totalHoursWorked);
-//        System.out.printf("Employee salary : %.2f\n", this.computeSalary());
+    /**
+     *
+     */
+    @Override
+    public void display() {
+//        System.out.println(empName);
+//        System.out.println(empID);
+//        System.out.println(bDay);
+//        System.out.println(dateHired);
+//        System.out.println(this + "\n" + "Salary : " + this.computeSalary());
+        System.out.println(this + super.toString() + "\nSalary: " + this.computeSalary());
 
-            System.out.println(this+ super.toString() +"\n"+"Salary : "+this.computeSalary());
-            return " ";
     }
 
     @Override
     public String toString() {
-        return "HourlyEmployee\n" + "totalHoursWorked=" + totalHoursWorked + ", \nratePerHour=" + ratePerHour;
+        return "totalHoursWorked=" + totalHoursWorked + ", \nratePerHour=" + ratePerHour;
     }
 
- 
-    
-    
-    
 }
 //HourlyEmployee
 //-totalHoursWorked:float

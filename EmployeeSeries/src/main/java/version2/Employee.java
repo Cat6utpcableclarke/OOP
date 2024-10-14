@@ -10,8 +10,8 @@ package version2;
  */
 public class Employee {
     
-    protected String name;
-    protected int empID;
+    private String name;
+    private int empID;
 
     public Employee() {
     }

@@ -4,8 +4,6 @@
  */
 package version3;
 
-
-
 /**
  *
  * @author light
@@ -16,9 +14,6 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
 //    private String empName;
 //    private int empID;
-
-    
-    
     public BasedPlusCommissionEmployee() {
 
     }
@@ -31,11 +26,12 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
         super(totalSales, fName, mName, lName, empID, month, date, year, month2, date2, year2);
         this.baseSalary = baseSalary;
     }
-    
-     public BasedPlusCommissionEmployee(double baseSalary, double totalSales, String fName,  String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
-        super(totalSales, fName,lName, empID, month, date, year, month2, date2, year2);
+
+    public BasedPlusCommissionEmployee(double baseSalary, double totalSales, String fName, String lName, int empID, int month, int date, int year, int month2, int date2, int year2) {
+        super(totalSales, fName, lName, empID, month, date, year, month2, date2, year2);
         this.baseSalary = baseSalary;
     }
+
     public BasedPlusCommissionEmployee(double baseSalary, double totalSales, int month, int date, int year) {
         super(totalSales, month, date, year);
         this.baseSalary = baseSalary;
@@ -51,11 +47,6 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
         this.baseSalary = baseSalary;
     }
 
-   
-    
-    
-   
-    
     public double getBaseSalary() {
         return baseSalary;
     }
@@ -66,30 +57,20 @@ public class BasedPlusCommissionEmployee extends CommisionEmployee {
 
     @Override
     public double computeSalary() {
+        return super.computeSalary() + baseSalary;
 
-    
-        
-        return  super.computeSalary()+baseSalary;
-       
     }
 
-    public void displayBasedPlusCommissionEmployee() {
-//         System.out.printf("Employee ID : %d\n", empID);
-//        System.out.printf("Employee Sales : %.2f\n", totalSales);
-//        System.out.printf("Employee BaseSalary : %.2f\n", BaseSalary);
-//        System.out.printf("Employee Salary : %.2f\n", super.computeSalary()+BaseSalary);
-          super.display();
-          System.out.println(super.toString());
-         
+    @Override
+    public void display() {
+        System.out.println(super.toString());
+        super.display();
 
     }
 
     @Override
     public String toString() {
-        return  "\nbaseSalary=" + baseSalary ;
+        return "baseSalary=" + baseSalary;
     }
-
-    
-   
 
 }
