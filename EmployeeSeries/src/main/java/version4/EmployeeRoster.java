@@ -14,7 +14,7 @@ public class EmployeeRoster {
     private int count;
     private int max;
 
-    public EmployeeRoster(Employee[] emplist, int max) {
+    public EmployeeRoster(int max) {
         this.emplist = new Employee[max];
         this.count = 0;
         this.max = max;
@@ -55,20 +55,21 @@ public class EmployeeRoster {
        
     }
     
-    public Employee removeEmployee(int id){
-        
-        int i;
-        Employee temp = new Employee();
-        for (i = 0; i < count; i++) {
+     public Employee removeEmployee(int id) {
+        for (int i = 0; i < count; i++) {
             if (emplist[i].getEmpID() == id) {
-                temp = emplist[i];
-                int j = i;
-                for (; j < count; j++) {
+                Employee removedEmployee = emplist[i];
+
+                // Shift elements left to fill the gap
+                for (int j = i; j < count - 1; j++) {
                     emplist[j] = emplist[j + 1];
                 }
+                emplist[count - 1] = null; // Clear the last element
+                count--; // Decrease the count
+                return removedEmployee;
             }
         }
-        return temp;
+        return null; // Return null if not found
     }
     
     public int countHE(){

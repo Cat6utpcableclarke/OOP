@@ -131,12 +131,25 @@ public class EmployeeSeries {
 //        System.out.println("----------");
 //        b5.displayBasedPlusCommissionEmployee();
 //
-//        HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 5, 12, 2005, 10, 2, 2024);
-//        HourlyEmployee h2 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 12, 12, 2012);
-//        HourlyEmployee h3 = new HourlyEmployee();
-//        HourlyEmployee h4 = new HourlyEmployee(41, 100);
-//        HourlyEmployee h5 = new HourlyEmployee(30, 120, 12, 12, 2012);
-//        HourlyEmployee h6 = new HourlyEmployee(30, 120, "Clarke", "Canal", 2310, 5, 12, 2005, 10, 2, 2024);
+        HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 5, 12, 2005, 10, 2, 2024);
+        HourlyEmployee h2 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2315, 12, 12, 2012);
+        HourlyEmployee h3 = new HourlyEmployee();
+        HourlyEmployee h4 = new HourlyEmployee(41, 100);
+        HourlyEmployee h5 = new HourlyEmployee(30, 120, 12, 12, 2012);
+        HourlyEmployee h6 = new HourlyEmployee(30, 120, "Clarke", "Canal", 2317, 5, 12, 2005, 10, 2, 2024);
+        
+        
+        EmployeeRoster r = new EmployeeRoster(5);
+        
+        r.addEmployee(h1);
+        r.addEmployee(h2);
+        r.addEmployee(h6);
+        
+        
+        
+        
+       
+        
 //        System.out.println("----------HOURLY EMPLOYEEE----------");
 //        h1.display();
 //        System.out.println("----------");
@@ -154,7 +167,11 @@ public class EmployeeSeries {
 //        System.out.println("----------");
 //        System.out.println("----------COMMISION EMPLOYEEE----------");
 //        CommisionEmployee c1 = new CommisionEmployee();
-//        CommisionEmployee c2 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 12, 5, 2012, 10, 2, 2024);
+        CommisionEmployee c2 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 12, 5, 2012, 10, 2, 2024);
+        r.addEmployee(c2);
+        System.out.println(r.countHE());
+         r.removeEmployee(2310);
+         System.out.println(r.countHE());
 //        CommisionEmployee c3 = new CommisionEmployee(12300, 12, 5, 2012);
 //        CommisionEmployee c4 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 2012, 12, 12);
 //        CommisionEmployee c5 = new CommisionEmployee(12300);
