@@ -83,6 +83,47 @@ public class EmployeeRoster {
         
         return HeCount;
     }
+    
+     public int countPE(){
+        int PeCount =0;
+        int i=0;
+        for(;i<count;i++){
+            if(emplist[i] instanceof PieceEmployee){
+                PeCount++;
+            }
+        }
+        
+        return PeCount;
+    }
+     
+     
+      public int countCE(){
+        int CeCount =0;
+        int i=0;
+        for(;i<count;i++){
+            if(emplist[i] instanceof CommisionEmployee && !(emplist[i] instanceof BasedPlusCommissionEmployee)){
+                CeCount++;
+            }
+        }
+        
+        return CeCount;
+    }
+      
+      
+      
+      
+      
+       public int countBPCE(){
+        int BpceCount =0;
+        int i=0;
+        for(;i<count;i++){
+            if(emplist[i] instanceof BasedPlusCommissionEmployee){
+                BpceCount++;
+            }
+        }
+        
+        return BpceCount;
+    }
 
     
     
