@@ -6,7 +6,7 @@ package com.mycompany.employeeseries;
 //import com.mycompany.employeeseries.version1.*;
 //import version2.*;
 import version3.*;
-import version4.EmployeeRoster;
+import version5.EmployeeRoster;
 /**
  *
  * @author light
@@ -133,23 +133,23 @@ public class EmployeeSeries {
 //
         HourlyEmployee h1 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2310, 5, 12, 2005, 10, 2, 2024);
         HourlyEmployee h2 = new HourlyEmployee(30, 120, "Clarke", "Hubahib", "Canal", 2315, 12, 12, 2012);
-        HourlyEmployee h3 = new HourlyEmployee();
-        HourlyEmployee h4 = new HourlyEmployee(41, 100);
-        HourlyEmployee h5 = new HourlyEmployee(30, 120, 12, 12, 2012);
+//        HourlyEmployee h3 = new HourlyEmployee();
+//        HourlyEmployee h4 = new HourlyEmployee(41, 100);
+//        HourlyEmployee h5 = new HourlyEmployee(30, 120, 12, 12, 2012);
         HourlyEmployee h6 = new HourlyEmployee(30, 120, "Clarke", "Canal", 2317, 5, 12, 2005, 10, 2, 2024);
         
         
-        EmployeeRoster r = new EmployeeRoster(5);
-        
-        r.addEmployee(h1);
-        r.addEmployee(h2);
-        r.addEmployee(h6);
-        
-        
-        
-        
-       
-        
+//        EmployeeRoster r = new EmployeeRoster(10);
+          EmployeeRoster r = new EmployeeRoster();
+          r.Add(h1);
+          r.Add(h2);
+          r.Add(h6);
+          System.out.println(r.countHE());
+//       
+//        r.addEmployee(h1);
+//        r.addEmployee(h2);
+//        r.addEmployee(h6);
+                 
 //        System.out.println("----------HOURLY EMPLOYEEE----------");
 //        h1.display();
 //        System.out.println("----------");
@@ -167,11 +167,12 @@ public class EmployeeSeries {
 //        System.out.println("----------");
 //        System.out.println("----------COMMISION EMPLOYEEE----------");
 //        CommisionEmployee c1 = new CommisionEmployee();
-        CommisionEmployee c2 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 12, 5, 2012, 10, 2, 2024);
-        r.addEmployee(c2);
-        System.out.println(r.countHE());
-         r.removeEmployee(2310);
-         System.out.println(r.countHE());
+         CommisionEmployee c2 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 12, 5, 2012, 10, 2, 2024);
+         r.Add(c2);
+         System.out.println(r.countCE());
+//        r.addEmployee(c2);
+//        System.out.println(r.countHE());    
+//         System.out.println(r.countCE());
 //        CommisionEmployee c3 = new CommisionEmployee(12300, 12, 5, 2012);
 //        CommisionEmployee c4 = new CommisionEmployee(12300, "Pablo", "blo", "jab", 3439, 2012, 12, 12);
 //        CommisionEmployee c5 = new CommisionEmployee(12300);
@@ -218,12 +219,18 @@ public class EmployeeSeries {
 //
 //        BasedPlusCommissionEmployee b1 = new BasedPlusCommissionEmployee();
 //        BasedPlusCommissionEmployee b2 = new BasedPlusCommissionEmployee(10000);
-//        BasedPlusCommissionEmployee b3 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "thost", "Tans", 8888, 12, 12, 1998, 10, 2, 2024);
+        BasedPlusCommissionEmployee b3 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "thost", "Tans", 8888, 12, 12, 1998, 10, 2, 2024);
 //        BasedPlusCommissionEmployee b4 = new BasedPlusCommissionEmployee(10000, 9000, 12, 12, 1998);
 //        BasedPlusCommissionEmployee b5 = new BasedPlusCommissionEmployee(10000, 9000, "Neto", "Talib", "Otob", 6969, 2, 14, 2002);
 //        BasedPlusCommissionEmployee b6 = new BasedPlusCommissionEmployee(10000, 9000);
-//        BasedPlusCommissionEmployee b7 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "Tans", 8888, 12, 12, 1998, 10, 2, 2024);
-//
+        BasedPlusCommissionEmployee b7 = new BasedPlusCommissionEmployee(10000, 9000, "Kans", "Tans", 8888, 12, 12, 1998, 10, 2, 2024);
+           r.Add(b3);
+           r.Add(b7);
+//         r.addEmployee(b3);
+//         r.addEmployee(b7);
+          System.out.println(r.countBPCE());
+//         
+//         r.Display();
 //        b1.display();
 //        System.out.println("----------");
 //        b2.display();

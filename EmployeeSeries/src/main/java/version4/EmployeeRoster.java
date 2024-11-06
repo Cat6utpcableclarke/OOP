@@ -125,7 +125,14 @@ public class EmployeeRoster {
         return BpceCount;
     }
 
-    
+    public void Display(){
+        int i;
+        
+        for(i=0; i< count ; i++){
+            emplist[i].display();
+            System.out.println("");
+        }
+    }
     
     
     
