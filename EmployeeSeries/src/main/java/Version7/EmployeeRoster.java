@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package version5;
+package version7;
 
 import java.util.ArrayList;
-import version3.*;
 /**
  *
  * @author User
@@ -133,30 +132,9 @@ public class EmployeeRoster {
         
         System.out.println(String.format("%-5s | %-30s | %-14s | %-14s | %-12s | %-12s", "EMP ID", "Name", "Hire Date", "Date of Birth","Salary", "EMP Type"));
         for(int i = 0; i < this.empList.size(); i++){
-            double salary = 0.0;
-            if(this.empList.get(i) instanceof HourlyEmployee){
-                HourlyEmployee a = ( HourlyEmployee)this.empList.get(i);
-                salary = a.computeSalary();
-            }
-            
-            if(this.empList.get(i) instanceof PieceEmployee){
-                PieceEmployee a = (PieceEmployee)this.empList.get(i);
-                salary = a.computeSalary();
-            }
-            
-            if(this.empList.get(i) instanceof CommisionEmployee && !(this.empList.get(i) instanceof BasedPlusCommissionEmployee)){
-                CommisionEmployee a = (CommisionEmployee)this.empList.get(i);
-                salary = a.computeSalary();
-            }
-      
-            if(this.empList.get(i) instanceof BasedPlusCommissionEmployee){
-                BasedPlusCommissionEmployee a = (BasedPlusCommissionEmployee)this.empList.get(i);
-                salary = a.computeSalary();
-            }
-            
-            this.empList.get(i).getClass().getSimpleName();
-            String res = String.format("%-6d | %-30s | %-14s | %-14s | %-12.2f | %-12s", this.empList.get(i).getEmpID(), this.empList.get(i).getEmpName(), this.empList.get(i).getDateHired(), this.empList.get(i).getbDay(), salary, this.empList.get(i).getClass().getSimpleName());
+            String res = String.format("%-6d | %-30s | %-14s | %-14s | %-12.2f | %-12s", this.empList.get(i).getEmpID(), this.empList.get(i).getEmpName(), this.empList.get(i).getDateHired(), this.empList.get(i).getbDay(), this.empList.get(i).computeSalary(), this.empList.get(i).getClass().getSimpleName());
             System.out.println(res);
         }
 }
 }
+
